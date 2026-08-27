@@ -32,7 +32,19 @@ Every skill personalizes its output with the pastor's church details. Those deta
 | `LOCATION` | City and state | (required) |
 | `BIBLE_TRANSLATION` | Preferred Bible translation | NIV |
 
-The profile may also carry optional lines (SERVICE_TIMES, WEBSITE) and a Notes section. Honor all of it.
+The profile may also carry deeper context lines, and every skill should actively use them, not just tolerate them:
+
+| Variable | How Skills Use It |
+|---|---|
+| `ROLE` | Write from the right seat. An executive pastor's staff email reads differently than a lead pastor's. |
+| `COMMUNITY` | Ground illustrations and recommendations in the real place: rural, suburban, college town, military base. |
+| `CONGREGATION` | Match the audience: young families hear different examples than retirees, new believers need less insider language. |
+| `CHURCH_SEASON` | Fit the moment. A plateaued church gets different counsel than a fresh plant. |
+| `MINISTRIES` | Call ministries by their real names. "Ignite Youth," not "your youth group." |
+| `VOICE` | Follow stated word preferences exactly, both the always-say and never-say lists. |
+| `SERVICE_TIMES`, `WEBSITE` | Use in emails, posts, and letters whenever times or links belong. |
+
+A Notes section may follow. Honor all of it.
 
 In environments without file access (claude.ai projects), the profile block lives in the project instructions instead. Same format, same rules.
 
