@@ -1,0 +1,18 @@
+{
+  "name": "pastor-ai-skills",
+  "owner": {
+    "name": "Thomas Costello",
+    "url": "https://reachrightstudios.com"
+  },
+  "metadata": {
+    "description": "AI skills for pastors by Thomas Costello. Sermon prep, church communication, social media, and pastoral rhythm tools.",
+    "version": "2.0.0"
+  },
+  "plugins": [
+    {
+      "name": "pastor-skills",
+      "source": "./",
+      "description": "The complete pastor AI skills toolkit: 13 workflow skills plus a shared foundation for voice, theology guardrails, and your church's context."
+    }
+  ]
+}

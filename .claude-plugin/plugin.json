@@ -1,0 +1,14 @@
+{
+  "name": "pastor-skills",
+  "displayName": "Pastor AI Skills",
+  "version": "2.0.0",
+  "description": "14 AI workflow skills for pastors: sermon prep, church emails, letters, social media, devotionals, and more. Built with pastoral sensitivity and theological guardrails.",
+  "author": {
+    "name": "Thomas Costello",
+    "url": "https://reachrightstudios.com"
+  },
+  "homepage": "https://github.com/tkcostello/pastor-ai-skills",
+  "repository": "https://github.com/tkcostello/pastor-ai-skills",
+  "license": "MIT",
+  "keywords": ["pastor", "church", "sermon", "ministry", "devotional", "church-email"]
+}

@@ -1,6 +1,6 @@
 # Pastor AI Skills
 
-13 AI-powered workflow tools built for pastors. Not prompts. Real multi-step skills that handle the weekly grind so you can focus on ministry.
+14 AI-powered workflow tools built for pastors. Not prompts. Real multi-step skills that handle the weekly grind so you can focus on ministry.
 
 Built for [Claude Code](https://claude.ai/code). Also works in Claude.ai Projects.
 
@@ -14,10 +14,38 @@ I'm sharing them because pastors deserve better than generic AI prompts. These a
 
 ---
 
+## Install (One Command)
+
+Open Claude Code and run:
+
+```
+/plugin marketplace add tkcostello/pastor-ai-skills
+```
+
+Then:
+
+```
+/plugin install pastor-skills@pastor-ai-skills
+```
+
+That's it. All 14 skills, the shared foundation, and the PDF templates install together, and you get updates whenever this repo improves.
+
+Then run your first skill:
+
+```
+/pastor-setup
+```
+
+It asks for your church's details once (name, your name, attendance, location, denomination, Bible translation) and saves them. Every skill uses them from then on. You never repeat yourself.
+
+---
+
 ## The Skills
 
 | Skill | What it does | How often |
 |---|---|---|
+| **Setup** | | |
+| `/pastor-setup` | One-time church profile setup. Run this first. | Once |
 | **Sermon Prep** | | |
 | `/sermon-research` | Deep research on a passage: commentaries, historical context, word studies, thinking prompts. Outputs a formatted PDF. | Weekly |
 | `/sermon-brainstorm` | Interactive brainstorm session that produces a clear sermon brief | Weekly |
@@ -37,71 +65,53 @@ I'm sharing them because pastors deserve better than generic AI prompts. These a
 | `/midweek-devotional` | 200-300 word devotional for email or app: pastoral, personal, brief | Weekly |
 | `/meeting-agenda` | Structured agenda with time blocks and discussion questions | Weekly |
 
+You don't have to remember the slash commands. Once installed, just ask in plain English ("help me research Philippians 2 for Sunday") and Claude picks the right skill.
+
+One note on the commands: when installed as a plugin, Claude Code may show the skills with a prefix, like `/pastor-skills:church-email`. Type `/` and start typing the skill name and it will come up either way.
+
 ---
 
-## Getting Started
+## Other Ways to Install
 
-### Option 1: Claude Code (Easiest)
-
-Open Claude Code and paste this:
-
-> Install the pastor AI skills from https://github.com/tkcostello/pastor-ai-skills. I want all of them.
-
-That's it. Claude will clone the repo, install the foundation and all the skills for you. If you only want specific skills, just tell it which ones you want.
-
-Once installed, use them by typing `/sermon-research`, `/church-email`, etc.
-
-### Option 2: Manual Install (Claude Code CLI)
-
-If you prefer to do it yourself:
+### Manual copy (Claude Code)
 
 ```bash
-# Clone the repo
 git clone https://github.com/tkcostello/pastor-ai-skills.git
 
-# Copy the foundation (required for all skills)
-cp -r pastor-ai-skills/foundation/pastor-foundation ~/.claude/skills/
+# The foundation and setup skills are required
+cp -r pastor-ai-skills/skills/pastor-foundation ~/.claude/skills/
+cp -r pastor-ai-skills/skills/pastor-setup ~/.claude/skills/
 
-# Copy any skills you want to use
-cp -r pastor-ai-skills/sermon-prep/sermon-research ~/.claude/skills/
-cp -r pastor-ai-skills/written-communication/church-email ~/.claude/skills/
-cp -r pastor-ai-skills/sermon-repurposing/small-group-questions ~/.claude/skills/
-# ... add as many as you need
+# Copy any skills you want
+cp -r pastor-ai-skills/skills/sermon-research ~/.claude/skills/
+cp -r pastor-ai-skills/skills/church-email ~/.claude/skills/
+
+# If you copy any PDF-producing skill, also copy the shared PDF library
+cp -r pastor-ai-skills/shared ~/.claude/skills/
 ```
 
-### Option 2: Claude.ai Projects
+The plugin install above is easier and keeps itself updated. Use manual copy only if you have a reason.
+
+### Claude.ai Projects
 
 1. Create a new Project in Claude.ai
-2. Open the `SKILL.md` file for the skill you want (you can view them right here on GitHub)
-3. Copy the entire contents into your Project's custom instructions
-4. For best results, also copy the `pastor-foundation/SKILL.md` content first
+2. Copy the contents of `skills/pastor-foundation/SKILL.md` into your Project's custom instructions
+3. Add the `SKILL.md` contents for whichever skills you want below it
+4. Paste in a filled-out church profile block (the pastor-foundation file shows the format)
+
+You lose the PDF output in this mode, but every writing skill works.
 
 ---
 
-## Foundation Setup
+## PDF Output
 
-The first time you use any skill, the foundation will ask for a few details about your church:
+Eight skills deliver a formatted, print-ready PDF (sermon research briefs, meeting agendas, small group guides, letters on your letterhead, and more). These need one Python package:
 
-- **Church name**
-- **Your name**
-- **Denomination** (optional, defaults to nondenominational evangelical)
-- **Average attendance**
-- **Location**
-- **Preferred Bible translation** (defaults to NIV)
+```bash
+pip install reportlab
+```
 
-You set this once. Every skill uses these details to personalize your output so it sounds like it came from someone on your staff, not a robot.
-
----
-
-## Dependencies
-
-Most skills have zero dependencies. The following skills require a one-time install:
-
-| Skill | Dependency | Install |
-|---|---|---|
-| `/sermon-research` | reportlab (Python) | `pip install reportlab` |
-
-Claude Code will install this automatically the first time you use the skill. If you prefer to install manually, run the command above.
+Claude Code installs it automatically the first time a PDF skill runs. The skills that produce PDFs: `sermon-research`, `sermon-brainstorm`, `sermon-series`, `meeting-agenda`, `small-group-questions`, `midweek-devotional`, `announcement-script`, `church-letter`. Everything else has zero dependencies.
 
 ---
 
