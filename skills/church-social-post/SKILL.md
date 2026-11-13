@@ -1,180 +1,48 @@
 ---
 name: church-social-post
-description: Use when writing social media posts for a church: Facebook, Instagram, or Twitter/X captions for events, sermons, scripture, holidays, or announcements.
+description: Writes one church social media post, tailored separately for Facebook, Instagram and X, from an event, sermon line, verse, story or idea. Use when the pastor says "write a Facebook post about our baptisms", "Instagram caption for Easter", "turn this sermon quote into a post", "something to post on Monday about Romans 8:28", or "I need to post something this week and have no idea what".
 argument-hint: "[topic or event]"
 ---
 
 # Church Social Media Post
 
-**One topic, three platforms, zero stress.**
+One idea, written three ways, because each platform reads differently.
 
-> Before writing: follow the pastor-foundation skill and load the church profile from `~/.claude/pastor-profile.md`. If the profile file is missing, run the pastor-setup skill first.
+<!-- shared-context:start: edit skills/pastor-foundation/context.md, then run scripts/sync-context.py -->
+## Church context
 
----
+Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, attendance, location, Bible translation, ministry names, voice preferences, service times and website. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
 
-## What You Need to Provide
+Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets.
 
-Give me any of the following:
+- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Never present a paraphrase as a quote or stretch a verse to carry a point its passage doesn't make.
+- Don't invent facts: no made-up quotes, statistics, stories, names, dates or church details. Leave a clear `[placeholder]` instead.
+- Sermon tools help the pastor study and think. None of them writes a sermon to preach as-is.
+- Sound like a warm, capable colleague: plain words, short paragraphs, the church's own ministry names, no em dashes. Say it and stop.
+<!-- shared-context:end -->
 
-- A topic (e.g., "We just baptized 12 people this Sunday")
-- An upcoming event (e.g., "Easter Sunday service on April 20")
-- A scripture verse (e.g., "Romans 8:28")
-- A sermon quote or insight (e.g., "You can't lead people where you haven't been yourself")
-- A church win, story, or milestone
-- A general idea you want to post about
+## What to ask for
 
-**Optional:** Tell me which platform(s) you want, and if you have a post type preference: quote graphic, photo caption, engagement question, event promo, or story/testimony.
+Anything works: an event with its date and time, a verse, a sermon line, a church story or milestone, or nothing at all (then offer an engagement question or a behind-the-scenes idea). Ask which platforms only if it matters; the default is all three. For events, make sure you have the date, time, place and the one thing people should do.
 
----
+## Pick the post type
 
-## Step 1: Select Post Type
+Match the input: a verse becomes a quote graphic with a short reflection; an event becomes a promo with one clear call to action; a sermon line becomes a thought-provoking caption; a win or story becomes a celebration or testimony post. Use the pastor's preference if they have one. Say in a line which type you chose.
 
-Before writing, I match your input to the best post format:
+## Each platform
 
-| Input | Best Post Type |
-|---|---|
-| Scripture verse | Quote graphic with reflection caption |
-| Upcoming event | Event promo with clear CTA |
-| Sermon quote or insight | Thought-leadership caption |
-| Church win or story | Testimony/celebration post |
-| No specific input | Engagement question or behind-the-scenes prompt |
+Write a separate post for each. The same caption pasted everywhere reads wrong on at least two of them.
 
-If you tell me your preference, I use that. If not, I choose based on what will perform best for your input.
+- **Facebook.** The audience skews older and reads more. About 100 to 250 words: a first line that stops the scroll, a little context or story, one call to action, and a question people will actually want to answer. Never post a bare link; write the post around it.
+- **Instagram.** Image first, caption second. The first line has to work on its own, since only a line or so shows before "more." Keep it to roughly 50 to 150 words with three to five specific hashtags at the end, never at the start. Suggest a carousel when the content is a list, and a Story idea (poll, question or countdown sticker) when it fits.
+- **X.** Short, direct and conversational, well under the 280-character limit, with zero or one hashtag. Note when an idea is better as a short thread and what each post would cover.
 
----
+Scripture never goes up alone. "Jeremiah 29:11" with nothing else is noise; give it a sentence connecting it to real life this week.
 
-## Step 2: Write Platform-Specific Posts
+## Image direction
 
-I write a distinct, optimized post for each platform. These are never copy-paste copies of each other. Each platform has a different culture, audience behavior, and algorithm. I respect that.
+For each post, describe the image specifically enough to brief a volunteer or pick a photo. For quote graphics, give the exact text (15 words or fewer), the type style, a color direction that fits the church's brand if known, and the background. A good phone photo of real people from the church beats stock imagery.
 
----
+## Output
 
-### Facebook
-
-**Target length:** 100-250 words. Facebook rewards slightly longer posts that invite conversation. Walls of text kill reach. So does one-sentence fluff.
-
-**Structure:**
-- Hook line (first sentence must stop the scroll)
-- Body (context, story, or reflection)
-- CTA (what do you want them to do next?)
-- Question (drives comments, which drive reach)
-
-**Image suggestion:** I describe the ideal image for this post. If it's a quote graphic, I give you the exact quote text (under 15 words) and a style description.
-
-**Example output format:**
-
-> **[Hook line]**
->
-> [Body: 2-4 short paragraphs with a clear point or story]
->
-> [CTA: one sentence]
->
-> [Comment-driving question]
->
-> Image: [Description of ideal photo, graphic, or design]
-
----
-
-### Instagram
-
-**Target length:** 50-150 words for feed post. Instagram is visual first, caption second. The caption supports the image, not the other way around.
-
-**Structure:**
-- Hook line (this must work before the "...more" cutoff, roughly 125 characters)
-- Body (reflection, context, or story)
-- 3-5 hashtags at the end (never at the start, never 30 at once)
-
-**Story version:** If relevant, I suggest a quick Story format using a poll sticker, question sticker, or countdown for events.
-
-**Carousel suggestion:** If the content is list-based or has multiple points, I flag it as a carousel opportunity and suggest what each slide covers.
-
-**Image suggestion:** I describe the ideal image or graphic concept. If quote graphic: exact text (under 15 words) and style description.
-
-**Example output format:**
-
-> **[Hook line]**
->
-> [Body: short, punchy, visual language]
->
-> #hashtag1 #hashtag2 #hashtag3
->
-> Image: [Description]
->
-> Story version (optional): [Poll or question sticker concept]
-
----
-
-### Twitter/X
-
-**Target length:** Under 280 characters, ideally under 200. Twitter rewards punchy, opinionated, conversational posts. This is not the place for paragraphs.
-
-**Tone:** Slightly edgier than Facebook or Instagram. More direct. Less polish. More personality.
-
-**Hashtags:** 0-1. No keyword stuffing.
-
-**Format options:**
-- Standalone tweet: one punchy statement, observation, or question
-- Thread starter: first tweet hooks, rest of thread delivers the value (I note when the content calls for this)
-
-**Example output format:**
-
-> [Punchy, under-200-character tweet]
->
-> Format: Standalone tweet (or) Thread starter
->
-> Thread notes (if applicable): [What each follow-up tweet covers]
-
----
-
-## Step 3: Image Suggestions
-
-For every post, I give you a specific image description. Not vague. Not generic. Specific enough that you can brief a designer or find the right stock photo.
-
-For quote graphics, I give you:
-- The exact quote text (15 words or fewer)
-- Font style direction (bold/serif/clean/etc.)
-- Color palette suggestion (if relevant to your church brand)
-- Background style (solid color, texture, lifestyle photo with overlay, etc.)
-
----
-
-## Anti-Patterns I Avoid
-
-These are the things that kill reach, signal low effort, and make your church look out of touch online. I never do these.
-
-- **Never post the same caption across all three platforms.** Different platforms need different voices. What works on Facebook reads wrong on Twitter.
-- **Never use more than 5 hashtags on any platform.** More is not more. It looks spammy and tanks reach on most platforms.
-- **Never start an Instagram caption with a hashtag.** It buries the hook before anyone reads it.
-- **Never post a Facebook link with no context.** A bare link with no caption or setup gets almost zero organic reach. Always write a post around the link.
-- **Never post scripture without reflection.** "Jeremiah 29:11" alone is not a strategy. Every verse needs a sentence or two connecting it to real life. Otherwise it's noise.
-- **Never use em dashes.** Periods, commas, and colons do the job without looking like generated content.
-
----
-
-## Output Format
-
-I deliver posts in this order:
-
-1. **Post Type Selected** (one line, explains which format and why)
-2. **Facebook Post** (full caption + image suggestion)
-3. **Instagram Post** (full caption + hashtags + image suggestion + Story version if relevant)
-4. **Twitter/X Post** (full tweet + format note)
-5. **Quick Tip** (one sentence about timing, boosting, or repurposing this content if there's something worth flagging)
-
-Everything is ready to copy and post. No brackets to fill in. No "insert your church name here." You get finished content.
-
----
-
-## Usage Examples
-
-**Input:** "We just had our biggest Easter attendance ever. 847 people showed up."
-
-**Input:** "Philippians 4:13. I want to post something around this verse for Monday morning motivation."
-
-**Input:** "We're launching a new young adults ministry called 'The Table' on April 27. Sunday morning, 9am."
-
-**Input:** "Sermon quote from yesterday: 'God doesn't call the qualified. He qualifies the called.' Want to turn this into posts."
-
-**Input:** "I just want to post something this week but I have no idea what. Help."
-
-All of these work. Give me what you have and I'll handle the rest.
+In chat: the post type in one line, then the Facebook post, the Instagram caption with hashtags (plus Story or carousel idea if relevant), and the X post, each with its image suggestion. Add one quick tip on timing or reuse only if there's something worth saying.

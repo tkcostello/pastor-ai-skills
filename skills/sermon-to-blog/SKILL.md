@@ -1,169 +1,45 @@
 ---
 name: sermon-to-blog
-description: Use when turning a preached sermon (transcript or notes) into a standalone blog post for the church website.
+description: Turns a preached sermon (transcript, notes or outline) into a standalone, search-friendly blog post for the church website. Use when the pastor says "turn Sunday's sermon into a blog post", "make this transcript a blog", "write up my message for the website", "blog version of this sermon", or pastes sermon notes and asks for an article.
 argument-hint: "[paste transcript or notes]"
 ---
 
 # Sermon to Blog Post
 
-**Preach it once, publish it forever.**
+Rebuild the sermon as an article for someone who never heard it, reading on a phone. It is not a transcript, and it is not a summary of the service.
 
-> Before writing: follow the pastor-foundation skill and load the church profile from `~/.claude/pastor-profile.md`. If the profile file is missing, run the pastor-setup skill first.
+<!-- shared-context:start: edit skills/pastor-foundation/context.md, then run scripts/sync-context.py -->
+## Church context
 
----
+Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, attendance, location, Bible translation, ministry names, voice preferences, service times and website. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
 
-## What This Skill Does
+Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets.
 
-You preached a sermon. Maybe it was great. Maybe it was the best thing you've said from the pulpit all year. And now it's sitting in a folder somewhere as a transcript or a set of notes, doing nothing for the people who weren't in the room.
+- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Never present a paraphrase as a quote or stretch a verse to carry a point its passage doesn't make.
+- Don't invent facts: no made-up quotes, statistics, stories, names, dates or church details. Leave a clear `[placeholder]` instead.
+- Sermon tools help the pastor study and think. None of them writes a sermon to preach as-is.
+- Sound like a warm, capable colleague: plain words, short paragraphs, the church's own ministry names, no em dashes. Say it and stop.
+<!-- shared-context:end -->
 
-This skill turns that sermon into a standalone, web-ready blog post that works for someone who has never heard you preach. Not a transcript dump. Not a summary. A real article, structured for reading, optimized for search, and written in your voice.
+## What to ask for
 
----
+A transcript is best; notes or an outline with the main points, scripture and stories will do. Use a target keyword if the pastor has one. If not, pick the plain phrase a person would actually search for this topic ("what the Bible says about forgiveness") and say which you chose.
 
-## Input
+## Find the core first
 
-Provide one of the following:
+Before drafting, pull out the big idea in one sentence (the transferable truth, not the sermon title or passage), the one passage the message hangs on, the illustration that will work in print, and the three or four takeaways a reader can act on. Those decide the structure. Leave the rest of the sermon behind.
 
-- Full sermon transcript (preferred)
-- Recording notes or detailed outline with key points and illustrations
-- Bullet points covering the main ideas, scripture references, and any stories you told
+## Writing it for readers
 
-**Optional but helpful:** A target keyword or topic angle for SEO (e.g., "how to overcome anxiety as a Christian" or "what the Bible says about forgiveness").
+- **Title.** Name the question or truth, not the series ("The Anchor Holds, Week 3" means nothing to a searcher). Keep it around 60 characters so it isn't cut off in search results, with the keyword in it naturally. Offer three and recommend one.
+- **Meta description.** About 150 to 160 characters saying what the reader gets, in a human sentence.
+- **Opening.** Two or three sentences that start where the reader is: a tension, a question, a moment they'll recognize. Don't open with "Last Sunday I preached," the sermon title, a block of scripture or "In this post we'll explore." Someone arriving from search doesn't know or care that it was a sermon yet.
+- **Body.** Three or four sections with H2 subheadings that say something, one sermon point each. Weave scripture in by phrase and reference rather than block-quoting every point. Retell stories for the page: spoken stories carry setup and repetition that drag in print, so tighten them and lead with what matters. Short paragraphs, bold used rarely, bullets only for real lists.
+- **Close.** One clear takeaway and one specific thing to do today (not "spend time in prayer this week"). End on a line that lands. Skip "In conclusion."
+- **Length.** About 800 to 1,200 words. If it runs long, cut; a reader who finishes is worth more than one who quits halfway.
 
-If you don't provide a keyword, one will be identified from the sermon content.
+Adapt altar-call language ("if you're ready to give your life to Jesus tonight") into an invitation that fits a reader, such as visiting the church or talking with a pastor. Use the keyword a few times where it reads naturally and nowhere it doesn't.
 
----
+## Output
 
-## Workflow
-
-### Step 1: Extract the Core Message
-
-Before writing a single word of the post, identify:
-
-- **The big idea.** One sentence. What is this sermon actually about? Not the title, not the passage. The transferable truth.
-- **The strongest illustration.** One story, analogy, or real-world example from the sermon that will translate well to reading (not all illustrations work the same way in print).
-- **The 3-4 most practical takeaways.** What can someone actually do, think differently about, or believe differently because of this content?
-- **The primary scripture.** The passage the whole message hangs on.
-
-This step determines the structure. A blog post is not a transcript. It is a distilled, restructured version of the sermon's best content, rebuilt for a reader who is skimming on a phone at 7am.
-
----
-
-### Step 2: Write the Blog Post
-
-Produce all three components below. No placeholders. Complete, polished output.
-
----
-
-#### Title
-
-- SEO-friendly and compelling
-- Under 60 characters
-- Functions as both a search result and a social share
-- Includes the primary keyword naturally
-- Generate 2-3 options and recommend one
-
-**Examples of strong titles:**
-- "How to Stop Worrying When Life Falls Apart"
-- "What Jesus Actually Said About Anxiety"
-- "3 Things the Bible Says About Trusting God in Hard Times"
-
-**Avoid:**
-- Vague sermon titles that mean nothing outside the church walls ("The Anchor Holds," "Week 3: Going Deeper")
-- Clickbait that overpromises
-- Titles over 60 characters
-
----
-
-#### Meta Description
-
-- 140-160 characters
-- Summarizes the value of the article for someone seeing it in a search result
-- Includes the primary keyword naturally, not forced
-- Reads like a human wrote it, not a checklist item
-
----
-
-#### Body: 800-1200 words
-
-Structure the article as follows:
-
-**Opening Hook (no heading, 2-3 sentences)**
-
-Draw in a reader who did NOT hear the sermon. Use relatable tension, a pointed question, or a surprising statement. Meet them where they actually are.
-
-Do not open with:
-- "Last Sunday I preached about..."
-- "In this blog post, we will explore..."
-- A block of scripture
-- The sermon title
-
-The hook earns the right to be read. It should make a reader think: "Yes. That's exactly where I am."
-
----
-
-**Body Sections (3-4 sections, each with an H2 subheading)**
-
-Each section covers one key point from the sermon. The subheadings should be scannable and meaningful, not decorators.
-
-Guidelines for each section:
-- 150-250 words
-- Weave in scripture naturally. Do not block-quote every other paragraph. Reference it, quote a phrase, let it breathe.
-- Use the sermon's language and illustrations, adapted for reading. A story told out loud has different pacing than one told on the page. Tighten it. Cut the setup. Lead with what matters.
-- Keep paragraphs short: 2-3 sentences. White space is your friend.
-- Bold only what is genuinely worth emphasizing. Not every sentence. Sparingly.
-- Use bullet points only for actual lists, not to fake structure.
-
----
-
-**Closing (no "In Conclusion" or "As We Wrap Up")**
-
-- 100-150 words
-- Clear single takeaway: what should the reader walk away believing or doing?
-- One concrete action step. Specific. Not "spend time in prayer this week." Something they can actually do today.
-- End with strength. Not a fade. Not a hedge. A statement or a question that lands.
-
----
-
-## Anti-Patterns
-
-These are hard stops. None of these belong in a published blog post:
-
-- **"In this blog post, we'll explore..."** -- Never. Cut it.
-- **Altar-call language** -- "If you're ready to give your life to Jesus tonight..." belongs in a sermon, not a blog post. Adapt it or cut it.
-- **Transcript sections** -- Do not paste long chunks of what was said verbatim. Restructure for reading.
-- **Keyword stuffing** -- One primary keyword. Use it 3-5 times naturally. Do not force it into every paragraph or subheading.
-- **Exceeding 1200 words** -- If you are over 1200 words, cut. Tighter is better. A reader who makes it to the end is worth more than one who gets halfway.
-- **Weak openings** -- If the first line would not stop a scroll, rewrite it.
-- **Em dashes** -- Do not use em dashes. Use a period, comma, or colon instead.
-
----
-
-## Output Format
-
-Deliver the following, in order:
-
-1. **Recommended title** (with 2 alternatives below it)
-2. **Meta description**
-3. **Full article body** (formatted with H2 subheadings, ready to paste into WordPress or any CMS)
-4. **SEO notes:** primary keyword identified, estimated keyword density, any secondary keywords naturally present
-
----
-
-## Quality Check
-
-Before presenting the output, verify:
-
-- [ ] Opening hook does not reference the sermon, the service, or the pastor's name
-- [ ] Word count is between 800 and 1200
-- [ ] No em dashes used anywhere
-- [ ] Scripture is woven in, not block-quoted throughout
-- [ ] Paragraphs are 2-3 sentences max
-- [ ] Subheadings are present every 200-300 words
-- [ ] Closing has a clear action step
-- [ ] No altar-call language
-- [ ] Title is under 60 characters
-- [ ] Meta description is 140-160 characters
-- [ ] No filler phrases ("In this post...", "As we wrap up...", "In conclusion...")
-
-If the output fails any of these checks, revise before presenting.
+In chat: the recommended title with two alternatives, the meta description, the full article with H2 subheadings ready to paste into WordPress or any CMS, and a one-line SEO note naming the primary keyword and any secondary terms that came up naturally.
