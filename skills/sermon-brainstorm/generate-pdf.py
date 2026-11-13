@@ -8,24 +8,38 @@ import os
 _here = os.path.dirname(os.path.abspath(__file__))
 
 
-def _find_shared():
-    """Locate shared/pdf_utils.py regardless of how the skill was installed."""
-    candidates = [_here, os.environ.get("CLAUDE_PLUGIN_ROOT") or ""]
+def _load_pdf_utils():
+    """Load pdf_utils.py by file path, without touching sys.path.
+
+    Looks next to this script first (a flat copy of one skill folder), then
+    $CLAUDE_PLUGIN_ROOT/shared (plugin install), then parent folders for a
+    shared/ directory (a full clone). Exits with a plain message if reportlab
+    or pdf_utils.py is missing.
+    """
+    import importlib.util
+    try:
+        import reportlab  # noqa: F401
+    except ImportError:
+        sys.exit("PDF output needs the reportlab package. Run: pip install reportlab")
+    roots = [_here, os.environ.get("CLAUDE_PLUGIN_ROOT", "")]
     d = _here
-    for _ in range(6):
+    for _ in range(4):
         d = os.path.dirname(d)
-        candidates.append(d)
-    for base in candidates:
-        if not base:
-            continue
-        for sub in ("", "shared"):
-            cand = os.path.join(base, sub) if sub else base
-            if os.path.isfile(os.path.join(cand, "pdf_utils.py")):
-                return cand
-    return os.path.join(_here, "..", "..", "shared")
+        roots.append(d)
+    for root in filter(None, roots):
+        for path in (os.path.join(root, "pdf_utils.py"),
+                     os.path.join(root, "shared", "pdf_utils.py")):
+            if os.path.isfile(path):
+                spec = importlib.util.spec_from_file_location("pdf_utils", path)
+                module = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(module)
+                sys.modules["pdf_utils"] = module
+                return
+    sys.exit("Could not find pdf_utils.py. Copy shared/pdf_utils.py from "
+             "github.com/tkcostello/pastor-ai-skills into this skill's folder.")
 
 
-sys.path.insert(0, _find_shared())
+_load_pdf_utils()
 
 from pdf_utils import (
     build_styles, section_header, add_title_banner,
