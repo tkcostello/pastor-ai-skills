@@ -1,217 +1,72 @@
 ---
 name: church-letter
-description: Use when writing a formal church letter: leadership transitions, facility or building updates, policy changes, welcome letters, or sensitive congregational communications.
+description: Writes formal letters from the pastor to the congregation or a group, from welcome letters and building updates to leadership transitions, staff departures and hard news. Use when the pastor says "I need to tell the church our worship pastor is leaving", "write a letter about the building closing for repairs", "welcome letter for new members", "help me explain the new childcare policy", or "a letter to the church about our finances".
 argument-hint: "[occasion]"
 ---
 
-# Church Letter Writer
+# Church Letter
 
 The right words for the hard letters and the good ones.
 
-> Before writing: follow the pastor-foundation skill and load the church profile from `~/.claude/pastor-profile.md`. If the profile file is missing, run the pastor-setup skill first.
+<!-- shared-context:start: edit skills/pastor-foundation/context.md, then run scripts/sync-context.py -->
+## Church context
 
----
+Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, polity, attendance, location, Bible translation, ministry names, voice preferences, service times, website and giving link. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
 
-## What to Give Me
+Write as the person in the profile. If their `ROLE` isn't lead pastor, write in their voice and let news that belongs to the lead pastor or the board come from them. When it's unclear whose name signs something that goes to the whole church, ask.
 
-**Required:**
-- The occasion or purpose of the letter
-- Key details (what happened, what is changing, what the reader needs to know)
-- Audience: whole congregation, a specific group (e.g., volunteers, small group leaders), or an individual
+Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets, including each tradition's church calendar.
 
-**Optional but useful:**
-- Tone guidance (e.g., "keep it brief," "this is sensitive," "I want this to feel celebratory")
-- Anything to avoid: specific phrases, details that should not be in writing, topics that need to stay off the page
-- Whether this will be printed, emailed, or both
+- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Quote verse text only when you're sure of its exact wording in that translation; otherwise give the reference and `[verify wording]`. Don't stretch a verse to carry a point its passage doesn't make.
+- Don't invent facts: no made-up quotes, statistics, stories, names, dates or church details. Leave a clear `[placeholder]` instead.
+- Protect people. Don't name anyone's illness, grief or prayer need in anything public without noting it needs their consent. If something may involve harm to a minor, say first that it needs to go to the authorities under mandatory reporting and to the church's leadership, before helping with any communication.
+- Sermon tools help the pastor study and think. None of them writes a sermon to preach as-is.
+- Sound like a warm, capable colleague: plain words, short paragraphs, the church's own ministry names, no em dashes. Say it and stop.
+<!-- shared-context:end -->
 
----
+## What to ask for
 
-## How This Works
+The occasion, the key facts (what happened, what's changing, what readers need to know) and the audience: the whole church, a group like volunteers or small group leaders, or one person. Useful extras: tone guidance, anything that should stay off the page, and whether it will be printed, emailed or both.
 
-### Step 1: Assess the Situation
+## Match the letter to the occasion
 
-Before writing a word, I identify the letter type and calibrate tone and length accordingly.
-
-| Letter Type | Tone | Length |
+| Letter | Tone | Length |
 |---|---|---|
-| Welcome / celebration | Warm, upbeat | 200-300 words |
-| Facility / logistics update | Clear, positive | 150-250 words |
+| Welcome or celebration | Warm, upbeat | 200-300 words |
+| Facility or logistics update | Clear, positive | 150-250 words |
 | Leadership transition | Honest, hopeful, pastoral | 300-500 words |
 | Staff departure | Careful, gracious, brief | 200-300 words |
 | Policy change | Clear, empathetic, firm | 250-400 words |
-| Financial update / need | Transparent, vision-driven | 300-400 words |
-| Crisis or difficult news | Pastoral, steady, compassionate | 300-500 words |
+| Financial update or need | Transparent, specific, hopeful | 300-400 words |
+| Crisis or difficult news | Pastoral, steady | 300-500 words |
 
-If the situation does not fit cleanly into one category, I will note that and explain the blend I am using.
+If it's a blend, say which blend you're using.
 
-Sensitive letters get extra scrutiny before drafting. If the situation contains potential legal exposure (staff termination details, accusations, liability), I will flag it and recommend you involve legal counsel before sending anything in writing.
+## What a good letter does
 
----
+People save a pastor's letters, reread them and quote them months later, so write it to be received clearly and trusted.
 
-### Step 2: Write the Letter
+- **Open with the relationship, not the news.** The congregation isn't a memo list. "Before Sunday, I wanted you to hear this from me." Skip "I am writing to inform you" and "It is with a heavy heart," which reads as theater.
+- **State the facts plainly.** What is happening, when, who's affected, what you're doing about it. If someone is leaving, say they're leaving; "some adjustments to our leadership structure" tells no one anything. People fill vague gaps with their worst assumptions.
+- **Name what readers will feel,** in a sentence or two, because people feel news before they process it. "I know this raises questions. Here is what I can tell you right now."
+- **Give a clear next step:** the timeline, who to contact, when the next update or gathering is, where to give. If there's nothing to do, say so: "You don't need to do anything. I just wanted you to hear this from me."
+- **Close with pastoral warmth** they'll remember: a real prayer, a blessing, confidence in the church. Not a throwaway "God bless," and not a reflective question; a letter isn't a small group.
 
-Every letter follows the same structural logic, adjusted for tone and occasion.
+Date it, address it the way the church does ("Dear Grace Family,"), and sign with the pastor's name and title. In churches led by elders or a session, letters about discipline, staff or major decisions often come from the board: ask, and if so sign it from the board (for example, "The Session of Grace Church"), with the pastor as moderator if that's their practice.
 
-#### Open with the relationship, not the news.
+## Hard letters
 
-The first sentence connects before it informs. Your congregation is not a memo recipient. They are people who trust you. Open like someone who knows them.
+For staff departures, leadership transitions, crises and personnel-related policy changes:
 
-**Examples:**
-- "This church has meant everything to our family, and that is exactly why I want to write to you directly."
-- "You have built something real here, and I want you to know what is coming next."
-- "Before Sunday, I wanted you to hear this from me."
+- Assign no blame, in the lines or between them. If a departure wasn't mutual, that still stays out of writing.
+- State the decision, give enough context to understand it, and stop. Paragraphs defending the choice read as defensive and usually backfire.
+- Answer the most important question, acknowledge others exist, and point people to where they can ask. Pre-answering every objection bloats the letter.
+- Leave out specific complaints, incidents, violations and terms of separation.
+- For a confessed moral failure, name the category plainly ("an inappropriate relationship with another adult") and give no details. Silence about why fuels the rumors; details wound the people involved. Don't name anyone else involved.
+- If the situation carries legal exposure (a termination, an accusation, liability), flag it and recommend counsel before anything goes out in writing.
 
-Never open with: "I am writing to inform you..." or "It is with great excitement that..." or "As we continue our journey together as a faith community..."
+## Output
 
----
+Give the letter in chat. Under it, add one sentence on what the letter communicates (for the pastor, not to send) and any flags: legal review, or a conversation that should happen in person before or after it goes out. For sensitive letters, offer an alternate closing paragraph in a second tone.
 
-#### State facts clearly.
-
-No burying the lead. No euphemisms. If someone is leaving, say they are leaving. If the building is closing for repairs, say it is closing. If finances are tight, say so.
-
-Clarity is a form of respect. Vague letters read as dishonest even when they are not. Your congregation will fill in the blanks you leave, and they will fill them in with their worst assumptions.
-
-What to say clearly:
-- What is happening
-- When it is happening
-- Who is affected
-- What you are doing about it (if applicable)
-
----
-
-#### Acknowledge reader emotions.
-
-Most church letters skip this entirely. That is a mistake. When people receive news, they feel things before they process information. If you do not name the emotional reality, the reader feels unacknowledged and the letter feels cold.
-
-This does not require a long detour. One or two sentences is enough.
-
-**Examples:**
-- "I know this raises questions. That is okay. Here is what I can tell you right now."
-- "This is not easy news. I am not going to pretend otherwise."
-- "Some of you will be surprised. Others of you saw this coming. Either way, I want to walk through it with you."
-
----
-
-#### Provide a clear next step or path forward.
-
-Every letter should answer: what do I do with this information? That answer will vary by letter type.
-
-- Welcome letter: show up Sunday, introduce yourself, here is how to get connected
-- Leadership transition: here is the timeline, here is who to contact with questions, here is the next gathering where this will be addressed
-- Financial update: here is the specific ask or action, here is the deadline, here is where to give
-- Crisis or difficult news: here is what we know, here is our next communication date, here is how to reach pastoral staff
-
-If there is genuinely no action to take, close the loop explicitly: "You do not need to do anything. I just wanted you to hear this from me."
-
----
-
-#### Close with pastoral warmth.
-
-End with prayer, blessing, or confidence in the church. This is not a formality. It is a pastoral move. The last thing they read should remind them who you are and that you are with them.
-
-**Examples:**
-- "I am praying for each of you by name this week. See you Sunday."
-- "God is not finished with this church. I am more convinced of that today than I was a year ago."
-- "Thank you for trusting us with this community. It is not something we take lightly."
-
-Never end with "God bless" as a throwaway. If you invoke blessing, mean it.
-
----
-
-## Rules for Sensitive Letters
-
-These rules apply specifically to staff departures, leadership transitions, crisis communications, and policy changes involving personnel.
-
-**Never assign blame.** Not in the letter, not between the lines. The reader will infer it anyway if it is there. If a staff departure is not mutual, you still do not put that in writing.
-
-**Never over-explain a difficult decision.** The more you explain, the more it reads like a defense. State the decision clearly, give enough context for the reader to understand what is happening, and stop. Paragraphs four, five, and six defending the decision are never necessary and are usually counterproductive.
-
-**Never pre-answer every question.** You will be tempted to answer objections before they are raised. Resist it. That impulse produces bloated, defensive letters. Answer the most important question, acknowledge that others exist, and direct people to the appropriate channel for follow-up.
-
-**Never include legally problematic language.** Do not name specific complaints, incidents, violations, or terms of separation in a congregational letter. If you are unsure whether something is safe to put in writing, it probably is not. Flag it and get counsel before sending.
-
----
-
-## Anti-Patterns
-
-These patterns appear in church letters constantly. They weaken the communication and, in sensitive situations, can cause real harm.
-
-- **Corporate language.** "Stakeholders," "alignment," "moving forward," "transitioning," "prayerfully discerning our next steps together as a community." Say what you mean in plain English.
-- **Vagueness about actual news.** If something is changing, name it. "Some adjustments to our leadership structure" tells no one anything. "Pastor David is stepping down as worship director" tells people what happened.
-- **Over-explanation of a difficult decision.** If your letter is defending a choice more than it is communicating news, you are writing the wrong letter.
-- **Assuming all questions can be answered in writing.** Some letters exist to inform. Others exist to open a conversation. Know which one you are writing.
-- **Performative grief.** "It is with a heavy heart that we announce..." is not pastoral. It is theater. If something is hard, say it is hard. Then tell people what happened.
-- **Ending on a question.** Letters are not small group discussions. Do not close with "What is God saying to you?" or "How can we pray for you specifically?" That belongs in a different format.
-
----
-
-## What the Finished Letter Looks Like
-
-Every completed letter includes:
-
-1. **The letter itself:** Dated, addressed appropriately (e.g., "Dear Grace Family," or "Dear [Name],"), and signed with the pastor's name and title.
-2. **A one-sentence framing note:** How I would describe this letter if someone asked what it communicates. This is for your reference, not to send.
-3. **Any flags:** If anything in the letter warrants legal review, pastoral follow-up, or a separate in-person conversation before or after sending, I will say so explicitly.
-
-If the letter type calls for it, I will also offer an alternate closing paragraph so you have two tones to choose from.
-
----
-
-## Why Getting This Right Matters
-
-Most church letters are written under pressure, by someone who is not sure what to say, in the window between "this needs to go out" and "there is no more time." That is exactly when the wrong word gets chosen, the sensitive detail slips in, or the tone lands colder than intended.
-
-A letter from a pastor carries weight that an email or announcement does not. People save them. They re-read them. They quote them in conversations months later. That weight is not a reason to avoid writing letters. It is a reason to write them carefully.
-
-The goal is not a perfect letter. The goal is a letter your congregation can receive clearly, trust completely, and act on confidently.
-
----
-
-## Output Format
-
-This skill outputs a formatted PDF document with church letterhead, not terminal text. The PDF includes the church name as a centered letterhead, a gold accent line, the dated and addressed letter body in justified type, and a pastor signature block. This is a church-branded document with no REACHRIGHT branding.
-
-### Requirements
-
-The PDF generator requires Python and the `reportlab` library. If reportlab is not installed, install it before generating:
-
-```
-pip install reportlab
-```
-
-### How It Works
-
-After writing the complete letter, do the following:
-
-1. **Write a JSON file** containing the structured letter data. Save it as a temporary file (e.g., `church-letter-temp.json`) in the current working directory.
-2. **Locate `generate-pdf.py`** in the same directory as this skill file. Search skill directories if needed.
-3. **Run the script:** `python generate-pdf.py church-letter-temp.json`
-4. **Delete the temporary JSON file** after the PDF generates successfully.
-5. **Tell the pastor** the PDF filename and where it was saved.
-
-The PDF saves to the current working directory with a filename based on the date and topic (e.g., `Church-Letter-April-14-2026-Leadership-Transition.pdf`).
-
-### JSON Data Structure
-
-Structure the letter into this exact format before generating the PDF.
-
-```json
-{
-  "church_name": "CHURCH_NAME from foundation",
-  "date": "April 14, 2026",
-  "topic": "Leadership Transition",
-  "addressee": "Dear New Hope Family,",
-  "body": "Full letter text. Separate paragraphs with double newlines.",
-  "pastor_name": "PASTOR_NAME from foundation",
-  "pastor_title": "PASTOR_TITLE from foundation",
-  "framing_note": "One sentence describing the letter for pastor reference only.",
-  "flags": ["Any flags for legal review or pastoral follow-up."]
-}
-```
-
-**Important notes on the JSON:**
-- `framing_note` and `flags` do not appear in the PDF. They are for the pastor's reference only.
-- `body` is a plain text string. Separate paragraphs with double newlines (`\n\n`).
-- This is a church-branded document. No REACHRIGHT branding appears anywhere in the output.
-- Use the pastor's real name, title, and church name from the foundation variables, not placeholders.
-- Do not use em dashes anywhere in the content. Use commas, colons, or periods instead.
+If the pastor asks for a PDF or printed letterhead copy, follow `references/pdf.md`.

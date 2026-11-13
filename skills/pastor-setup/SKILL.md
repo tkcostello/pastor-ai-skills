@@ -1,6 +1,6 @@
 ---
 name: pastor-setup
-description: Use when setting up pastor-ai-skills for the first time, when a pastor wants to view or change their church profile (church name, denomination, attendance, congregation, community, Bible translation), or when any pastor skill cannot find the church profile file at ~/.claude/pastor-profile.md.
+description: Saves the church profile every pastor skill reads (church name, pastor, tradition, attendance, location, Bible translation, ministries, voice). Use when the pastor says "set up my church", "pastor setup", "update my church profile", "we changed Bible translations", "change my denomination", or when a pastor skill finds no ~/.claude/pastor-profile.md.
 ---
 
 # Pastor Setup: Your Church Profile
@@ -19,7 +19,7 @@ The profile lives at `~/.claude/pastor-profile.md`.
 
 ## Interview Rules
 
-These rules are non-negotiable:
+Keep it a conversation, not a form:
 
 - **One question per message.** Never bundle two questions together. Ask, wait for the answer, then ask the next.
 - **Acknowledge each answer in a few words before the next question.** Like a person would. Not a form.
@@ -33,15 +33,15 @@ These rules are non-negotiable:
 Open with one sentence: this takes about two minutes, sets up every skill, and only happens once.
 
 1. **Church name.** "What's your church's name?"
-2. **Their name and role.** "And your name, as you'd want it to appear in content? Plus your role, if you're not the lead pastor." (Executive pastors, worship pastors, and comms directors use these tools too. Capture the role so skills write from the right seat.)
-3. **Denomination or tradition.** "What denomination or tradition are you part of? Totally fine to say nondenominational." (Default: nondenominational evangelical.)
+2. **Their name and role.** "And your name, as you'd want it to appear in content? Plus your role, if you're not the lead pastor." (Executive pastors, worship pastors, and comms directors use these tools too. Capture the role so skills write from the right seat. If they aren't the lead pastor, ask the lead pastor's name as the natural follow-up.)
+3. **Denomination or tradition.** "What denomination or tradition are you part of? Totally fine to say nondenominational." Then set `TRADITION` from the answer using the presets in the pastor-foundation skill's `references/traditions.md`: Foursquare, Assemblies of God and other Pentecostal or charismatic churches are `pentecostal-charismatic`; Presbyterian, Reformed and Reformed Baptist churches are `reformed`; Baptist churches are `baptist`. If the answer is nondenominational or doesn't map cleanly, ask one follow-up: "Would you say your church leans Pentecostal or charismatic, Reformed, Baptist, or just broadly evangelical?" Methodist, Anglican, Lutheran and similar answers get `other`, with a line in Notes on anything distinctive.
 4. **Attendance.** "About how many people attend on an average weekend?"
 5. **Location.** "What city and state?" If they only give a city, that's enough.
 6. **Bible translation.** "Which Bible translation do you preach from?" (Default: NIV.)
 
 ## Round 2: The Context (optional, offered as one choice)
 
-After question 6, offer it as a single yes/no: "That's the essentials. Want to answer 5 more so the tools really know your church? Takes two more minutes and makes every output sharper. Or we can stop here and add detail later."
+After question 6, offer it as a single yes/no: "That's the essentials. Want to answer 7 more so the tools really know your church? Takes two more minutes and makes every output sharper. Or we can stop here and add detail later."
 
 If yes, one at a time:
 
@@ -49,11 +49,13 @@ If yes, one at a time:
 8. **Congregation.** "Who actually fills your seats? Age mix, young families vs. seniors, long-timers vs. new believers, anything that shapes how you communicate."
 9. **Season.** "What season is the church in right now? Growing, plateaued, rebuilding, brand-new plant, fresh off a transition. Be honest, this stays on your machine."
 10. **Ministries.** "Any ministries or recurring programs the tools should know by name? Youth group name, kids ministry, small group system, food pantry, whatever comes up in your communication a lot."
-11. **Voice.** "Last one. When your church communicates, do you lean formal or casual? Any words or phrases you always use, or never use?"
+11. **Voice.** "When your church communicates, do you lean formal or casual? Any words or phrases you always use, or never use?"
+12. **Leadership.** "Who makes the big decisions: elders or a session, deacons, a church council, or a congregational vote?" (Letters about staffing, money and discipline often come from that body, and Baptist churches send big decisions to a members' meeting.)
+13. **Links.** "Last one. Your service times, website, and online giving link, if you have them?"
 
 ## Writing the Profile
 
-Write the answers to `~/.claude/pastor-profile.md` in exactly this format. Omit any line the pastor skipped, except DENOMINATION and BIBLE_TRANSLATION, which always get written with their defaults if skipped.
+Write the answers to `~/.claude/pastor-profile.md` in exactly this format. Omit any line the pastor skipped, except these three, which always get written: DENOMINATION (default `Nondenominational`), TRADITION (default `evangelical`) and BIBLE_TRANSLATION (default `NIV`).
 
 ```markdown
 # Church Profile
@@ -63,6 +65,8 @@ CHURCH_NAME: Grace Community Church
 PASTOR_NAME: Pastor Mike
 ROLE: Lead Pastor
 DENOMINATION: Southern Baptist
+TRADITION: baptist
+POLITY: Congregational. Deacons serve; major decisions go to a members' meeting vote.
 ATTENDANCE: 175
 LOCATION: Tulsa, Oklahoma
 BIBLE_TRANSLATION: ESV
@@ -73,12 +77,13 @@ MINISTRIES: Ignite Youth, Grace Kids, community groups (our small group system),
 VOICE: Casual but reverent. We say "community groups" never "cell groups." Avoid churchy insider language.
 SERVICE_TIMES: Sundays 9:00 and 11:00 AM
 WEBSITE: gracetulsa.org
+GIVING_LINK: gracetulsa.org/give
 
 ## Notes
 Anything else the pastor wants every skill to know goes here.
 ```
 
-SERVICE_TIMES and WEBSITE were not interview questions. If they came up naturally, save them. Otherwise leave them out.
+Add `LEAD_PASTOR: <name>` under ROLE when the person setting up isn't the lead pastor.
 
 ## After Writing
 

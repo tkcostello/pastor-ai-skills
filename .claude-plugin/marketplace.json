@@ -6,13 +6,13 @@
   },
   "metadata": {
     "description": "AI skills for pastors by Thomas Costello. Sermon prep, church communication, social media, and pastoral rhythm tools.",
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "plugins": [
     {
       "name": "pastor-skills",
       "source": "./",
-      "description": "The complete pastor AI skills toolkit: 13 workflow skills plus a shared foundation for voice, theology guardrails, and your church's context."
+      "description": "The complete pastor AI skills toolkit: 17 workflow skills plus a shared foundation for voice, theology guardrails, and your church's context."
     }
   ]
 }

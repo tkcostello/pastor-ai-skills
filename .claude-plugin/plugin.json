@@ -1,8 +1,8 @@
 {
   "name": "pastor-skills",
   "displayName": "Pastor AI Skills",
-  "version": "2.0.0",
-  "description": "14 AI workflow skills for pastors: sermon prep, church emails, letters, social media, devotionals, and more. Built with pastoral sensitivity and theological guardrails.",
+  "version": "2.1.0",
+  "description": "18 AI workflow skills for pastors: sermon prep and feedback, a one-pass Sunday-to-week pack, church emails, letters, social media, devotionals, funerals, weddings, and more. Built with pastoral sensitivity and theological guardrails.",
   "author": {
     "name": "Thomas Costello",
     "url": "https://reachrightstudios.com"

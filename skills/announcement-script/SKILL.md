@@ -1,186 +1,48 @@
 ---
 name: announcement-script
-description: Use when preparing Sunday morning announcements: a spoken script for the stage, worship host, or announcement video.
+description: Writes a word-for-word spoken announcement script for Sunday morning, cut to the three or four items that matter and kept under 90 seconds. Use when the pastor says "write Sunday's announcements", "turn this list into a script for our worship leader", "we have too many announcements, help me cut them", "script for our announcement video", or pastes this week's events for the stage.
 argument-hint: "[announcements to include]"
 ---
 
 # Sunday Announcement Script
 
-**Say what matters in 90 seconds or less.**
+Say what matters in 90 seconds or less.
 
-> Before writing: follow the pastor-foundation skill and load the church profile from `~/.claude/pastor-profile.md`. If the profile file is missing, run the pastor-setup skill first.
+<!-- shared-context:start: edit skills/pastor-foundation/context.md, then run scripts/sync-context.py -->
+## Church context
 
----
+Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, polity, attendance, location, Bible translation, ministry names, voice preferences, service times, website and giving link. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
 
-## What This Skill Does
+Write as the person in the profile. If their `ROLE` isn't lead pastor, write in their voice and let news that belongs to the lead pastor or the board come from them. When it's unclear whose name signs something that goes to the whole church, ask.
 
-Most Sunday announcements are boring because they try to cover everything. This skill does the opposite. It forces ruthless prioritization, then writes a word-for-word spoken script that opens with energy, moves fast, and lands every item with a clear call to action.
+Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets, including each tradition's church calendar.
 
-The result: people actually listen, and you're done in under 90 seconds.
+- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Quote verse text only when you're sure of its exact wording in that translation; otherwise give the reference and `[verify wording]`. Don't stretch a verse to carry a point its passage doesn't make.
+- Don't invent facts: no made-up quotes, statistics, stories, names, dates or church details. Leave a clear `[placeholder]` instead.
+- Protect people. Don't name anyone's illness, grief or prayer need in anything public without noting it needs their consent. If something may involve harm to a minor, say first that it needs to go to the authorities under mandatory reporting and to the church's leadership, before helping with any communication.
+- Sermon tools help the pastor study and think. None of them writes a sermon to preach as-is.
+- Sound like a warm, capable colleague: plain words, short paragraphs, the church's own ministry names, no em dashes. Say it and stop.
+<!-- shared-context:end -->
 
----
+## What to ask for
 
-## Input
+The list of everything being considered; more is fine. Helpful extras: who is delivering it (lead pastor, worship leader, volunteer), the tone of the service, and anything that has to be said aloud no matter what.
 
-Provide a list of announcements to work from. Include anything you're considering mentioning. More is fine. This skill will sort it out.
+## Cut first
 
-**Required:**
-- A list of announcements (events, deadlines, updates, volunteer needs, giving moments, anything)
+Announcements get tuned out because they try to cover everything. If there are more than four items, rank them by urgency (a deadline this week or next, a real opportunity someone would miss) and by how much of the room it applies to. Only the top three or four make the spoken script. Everything else goes in a short "For the bulletin, slides or email" list at the end with its key logistics. Anything the pastor marked as must-say stays in regardless of rank. A death, birth or serious care need for a known member gets one line from the stage even when it doesn't make the top items. Be decisive: a crowded script helps no one.
 
-**Optional:**
-- Who is delivering the announcements (pastor, worship leader, volunteer, etc.)
-- The overall tone of the service (celebratory, reflective, high energy, quiet)
-- Any announcement that is non-negotiable and must be spoken
+## Writing for the ear
 
-**Example input:**
-```
-- Women's Bible study starts Thursday, 7pm, room 214
-- Volunteer signup for summer VBS
-- Baptism Sunday is April 20th, sign up at the welcome table
-- Offering moment
-- New sermon series starts next week
-- Youth group rescheduled from Friday to Saturday this week
-- Food pantry needs canned goods
-```
+- **Open with something that earns attention,** not "We have a few announcements," which is the room's cue to check their phones. A tie to what just happened in worship, or straight into the first item. Match the energy to the profile's CONGREGATION and VOICE: a quick "Three things, then we'll worship" suits a young room; an older room wants it warm and unhurried.
+- **Give each item two or three sentences:** why it matters to the person in the seat, the logistics they need (day, time, place), and one specific action the pastor actually gave you (grab a card, text a number, sign up at the table). "Check it out" isn't an action, and don't invent a table or a number that may not exist.
+- **Leave the fine print for the bulletin.** Room numbers, committee chairs, parking details and form locations don't survive being heard once.
+- **Bridge between items simply.** "Also" and "One more thing" are fine; a clever segue that strains to connect two unrelated items is worse than none.
+- **Close by leading into what's next** in the service ("Now, let's worship."), not "That's all I've got" or "Back to you, Pastor."
+- **Keep it to 150-225 words,** which is 60-90 seconds at a natural pace. If it runs long, cut an item rather than asking the announcer to talk faster. Ninety seconds feels like three minutes to a room waiting to worship.
 
----
+Write every sentence so it can be read aloud as written, with no blanks to fill. Never put a `[placeholder]` in the spoken script: if a must-say item is missing a detail (date, time, place), ask the pastor before writing; otherwise move the item to the bulletin list with its gap marked there. Add a delivery cue in brackets only where it helps: [pause], [hold up the card], [point to the screen]. If someone other than the lead pastor is delivering, add a one- or two-line tone note at the top so the script fits their voice and energy.
 
-## Workflow
+## Output
 
-### Step 1: Triage
-
-If more than 4 items are submitted, force-rank them by two criteria:
-
-1. **Urgency:** Is there a deadline this week or next? Would missing this cost someone a real opportunity?
-2. **Relevance to the whole room:** Does this apply to most of the congregation, or just a small segment?
-
-Only the top 3-4 items make the spoken script. Everything else gets bumped to the bulletin, slides, or email section at the bottom of the output. Be decisive. Crowding the script helps no one.
-
-If an item was marked non-negotiable by the submitter, it stays in the spoken script regardless of rank.
-
----
-
-### Step 2: Write the Script
-
-Write a complete, word-for-word spoken script. No fill-in-the-blank. No placeholders. Every sentence should be deliverable as written.
-
-**Rules:**
-
-**Opening hook.** Do not open with "We have a few announcements" or any variation of it. Open with something that earns attention. A question, a bold statement, a brief moment of connection to what just happened in worship, or a direct lead into the first announcement. Examples:
-- "Before we go any further, I need 60 seconds of your attention because what I'm about to tell you matters."
-- "A few things that can genuinely change your week."
-- "Three things. One minute. Here we go."
-
-**Each announcement: 2-3 sentences max.** Structure every item the same way:
-1. Why it matters to the person in the seat (the benefit, the transformation, the need being met)
-2. The logistics (date, time, location, what to do)
-3. One clear single action (sign up, talk to someone, grab a card, text a number)
-
-Do not include room numbers, committee chair names, or other fine print in the spoken script. That belongs in the bulletin.
-
-**Transitions.** Write brief natural bridges between items. Not "Number two." Not "Also." Something that moves the energy forward without sounding like a list.
-
-**Close.** End with a warm, forward-facing transition into the next part of the service. Not "That's all!" or "Back to you, pastor." Something that lands and leads. Examples:
-- "Alright. Now let's do what we came here to do."
-- "That's what's ahead. Right now, let's turn our attention to giving."
-- "Now, let's worship."
-
-**Length:** 60-90 seconds spoken at a natural pace. That is 150-225 words for the script body. Stay in that range.
-
-**Delivery notes.** Add brief parenthetical cues where helpful: (pause), (smile), (hold up the card), (point to the screen). Keep them minimal. Only where it genuinely helps the delivery.
-
----
-
-## Output Format
-
-Output is a **branded single-page PDF** designed to be printed and handed to the announcer. The PDF generator lives at `generate-pdf.py` in this skill folder.
-
-### PDF Layout
-
-1. **Header:** "Sunday Announcements" in navy, centered, bold
-2. **Meta line:** date | estimated seconds | items covered out of submitted (centered, gray)
-3. **Gold accent rule**
-4. **Deliverer/tone notes** in italic slate (if provided)
-5. **Script body** in readable serif type. Delivery cues written as `[pause]` in the JSON render as *(pause)* in italic slate color inline.
-6. **Divider** (thin gray rule)
-7. **Bumped items section:** "For the Bulletin / Slides / Email" header with bullet list of items that did not make the spoken cut
-8. **Footer:** thin gray rule with page number only (no REACHRIGHT branding)
-
-### JSON Schema
-
-Save the structured output as JSON matching this schema, then run `python generate-pdf.py input.json` to produce the PDF.
-
-```json
-{
-  "date": "April 20, 2026",
-  "estimated_seconds": 75,
-  "items_submitted": 7,
-  "items_covered": 3,
-  "deliverer": "Worship Pastor",
-  "tone_notes": "High energy, celebratory. Baptism Sunday.",
-  "script_body": "Full script text. Use [cue] for delivery cues. Separate paragraphs with double newlines.",
-  "bumped_items": [
-    {"item": "Youth group schedule change", "summary": "Friday moved to Saturday this week only."}
-  ]
-}
-```
-
-**Field notes:**
-
-- `script_body` -- Use `[brackets]` for delivery cues (e.g., `[pause]`, `[smile]`, `[point to screen]`). They render as italic colored text in the PDF. Separate paragraphs with double newlines (`\n\n`).
-- `bumped_items` -- Announcements that did not make the spoken script. Each has an `item` name and a one-line `summary` with key logistics.
-- `deliverer` and `tone_notes` are optional. If omitted, those lines are skipped in the PDF.
-- The PDF is church-branded (no REACHRIGHT footer).
-
----
-
-## Anti-Patterns
-
-Never do any of these:
-
-- **Exceed 90 seconds.** If the script runs long, cut an item. Do not compress by talking faster.
-- **Open with "We have a few announcements."** Or any version of it. This is the universal signal for people to check their phones.
-- **Include fine print in the spoken script.** Room numbers, committee chairs, budget lines, parking instructions. All of that belongs in the bulletin. The spoken script carries the headline and the action only.
-- **Use vague CTAs.** "Check it out!" or "Learn more!" are not actions. Every item ends with one specific thing a person can do right now or this week.
-- **End with dead phrases.** "That's all I got!" "That's it for announcements!" "Back to you, pastor!" None of these. The close should land the script and lead forward.
-- **Write for the announcer, not the listener.** Every sentence should answer the question: why does this matter to the person sitting in that seat right now?
-
----
-
-## Examples
-
-### Example: Strong Opening (Good)
-
-"Before we get to worship, three things you actually want to know about."
-
-### Example: Weak Opening (Bad)
-
-"Okay, so we have a couple of announcements real quick."
-
----
-
-### Example: Strong Announcement Item (Good)
-
-"If you've been thinking about getting baptized, this is your moment. Baptism Sunday is April 20th. Grab a card from the welcome table on your way out and hand it to anyone on our team."
-
-### Example: Weak Announcement Item (Bad)
-
-"We're having Baptism Sunday on April 20th, coordinated by the pastoral care team. If you're interested, you can find more information on the back table or talk to someone from the committee, and there are forms available in room 214."
-
----
-
-### Example: Strong Close (Good)
-
-"Alright. That's what's coming. Right now, let's give our attention to what matters most."
-
-### Example: Weak Close (Bad)
-
-"Okay, that's all I've got! Back to you, Pastor Dave."
-
----
-
-## Notes for the Deliverer
-
-If the person making announcements is not the lead pastor, include a brief note at the top of the output with one or two tone reminders specific to whoever is delivering. A worship leader carries different energy than a volunteer coordinator. The script should feel natural in their voice, not borrowed from someone else.
-
-When in doubt, write shorter. Ninety seconds feels like three minutes when the congregation is waiting to worship. Respect their attention. Earn it fast. Get out clean.
+Give the script in chat with its estimated length in seconds and the bumped items below it. If the pastor asks for a PDF or printable copy for the announcer, follow `references/pdf.md`.

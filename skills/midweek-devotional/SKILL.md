@@ -1,153 +1,43 @@
 ---
 name: midweek-devotional
-description: Use when writing a midweek devotional or a short scripture-based encouragement to send the congregation by email, app, or text between Sundays.
-argument-hint: "[scripture or theme]"
+description: Writes a short midweek devotional (about 200-300 words) for the congregation's email, app or text. Use when the pastor says "write this week's devotional", "midweek devo on Psalm 46", "something encouraging to send Wednesday", "a short devotional tied to Sunday's sermon", or gives a verse or theme for a between-Sundays note.
+argument-hint: "[verse, passage or theme]"
 ---
 
 # Midweek Devotional
 
-A pastoral moment for the middle of the week.
+A short note from the pastor that lands on Wednesday: one passage, one honest thought, something to carry into the rest of the week.
 
-> Before writing: follow the pastor-foundation skill and load the church profile from `~/.claude/pastor-profile.md`. If the profile file is missing, run the pastor-setup skill first.
+<!-- shared-context:start: edit skills/pastor-foundation/context.md, then run scripts/sync-context.py -->
+## Church context
 
----
+Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, polity, attendance, location, Bible translation, ministry names, voice preferences, service times, website and giving link. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
 
-## What You Need to Provide
+Write as the person in the profile. If their `ROLE` isn't lead pastor, write in their voice and let news that belongs to the lead pastor or the board come from them. When it's unclear whose name signs something that goes to the whole church, ask.
 
-**Required:**
-- A verse, passage, or theme
+Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets, including each tradition's church calendar.
 
-**Optional:**
-- Connection to your current sermon series
-- Something happening in the community or world that's on people's minds
+- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Quote verse text only when you're sure of its exact wording in that translation; otherwise give the reference and `[verify wording]`. Don't stretch a verse to carry a point its passage doesn't make.
+- Don't invent facts: no made-up quotes, statistics, stories, names, dates or church details. Leave a clear `[placeholder]` instead.
+- Protect people. Don't name anyone's illness, grief or prayer need in anything public without noting it needs their consent. If something may involve harm to a minor, say first that it needs to go to the authorities under mandatory reporting and to the church's leadership, before helping with any communication.
+- Sermon tools help the pastor study and think. None of them writes a sermon to preach as-is.
+- Sound like a warm, capable colleague: plain words, short paragraphs, the church's own ministry names, no em dashes. Say it and stop.
+<!-- shared-context:end -->
 
----
+## What to ask for
 
-## Step 1: Write the Devotional
+A verse, passage or theme is enough. Use anything else the pastor offers: the current sermon series, something the church or town is going through this week.
 
-Use this exact structure. Every section has a purpose. Don't skip any of them.
+## The voice
 
-### Opening (1-2 sentences)
+Write it the way a pastor texts a friend who's having a hard week. First person is good. Skip the greeting ("Happy Wednesday, church family!") and start inside a real moment the reader will recognize, like how Sunday's resolve tends to fade by midweek. Quote one to three verses in full and let them stand without a verse-by-verse breakdown. Then stay with one idea, tied to something concrete people are carrying this week rather than a thought that fits any week of any year. Give them one sentence worth remembering. End with a short prayer (we, us, our) or a blessing, not both, and with no sign-off after it.
 
-Meet the reader where they are on Wednesday. Not where you wish they were.
+Keep it to roughly 200-300 words, short paragraphs, no section labels in the finished piece. If the pastor mentioned the sermon series, one light line of connection is plenty ("We've been in Philippians on Sundays..."), unless they ask you to build the devotional on Sunday's text. It's a devotional, not a sermon or an announcement: leave events and promotions for the church email.
 
-The opening should be honest and human. Skip the greeting entirely. Drop the reader into a real moment.
+## After a tragedy or a death
 
-What not to write: "Happy Wednesday, church family!"
-
-What to aim for: "By Wednesday most of us have already forgotten what we committed to on Sunday. That's not failure. That's being human."
-
-The goal is immediate recognition. The reader should think: "That's exactly where I am right now."
-
-### Scripture (quoted in full)
-
-Pull 1-3 verses. Not a full chapter. The whole passage should fit in a single short paragraph.
-
-Use the pastor's preferred translation. If no preference is given, use the ESV or NIV, whichever reads more naturally for the text.
-
-Quote it cleanly. No verse-by-verse breakdown. Let the text breathe.
-
-### Reflection (3-5 sentences)
-
-This is the heart of the devotional.
-
-Write in first person. Write as a pastor who has been sitting with this text for days, not someone summarizing a commentary. What does this passage mean for THIS week, in THIS moment, for people carrying real weight?
-
-Be specific. Vague spiritual encouragement does nothing. Anchor the reflection to something concrete: a feeling, a situation, a tension people are actually navigating.
-
-Keep sentences short. Two to three per paragraph. Midweek readers are scanning while eating lunch or driving carpool. Make every sentence earn its place.
-
-This section should feel like a handwritten note from someone who knows you, not a blog post from someone who needs page views.
-
-### One Takeaway (1 sentence)
-
-A single line the reader can carry into Thursday, Friday, and the weekend.
-
-Practical. Memorable. Short. This is not a summary of the reflection. It is an action or a posture: something the reader can actually hold onto.
-
-Test it: can someone repeat this sentence to a coworker without fumbling it? If not, simplify it.
-
-### Closing (2-3 sentences)
-
-End with a prayer or a benediction-style blessing. Not both.
-
-A closing prayer should be direct and personal, addressed to God, written in the first person plural (we, us, our). It should feel like the pastor is praying with the reader, not at them.
-
-A benediction should send the reader out with confidence and peace. Something they could read aloud over themselves before they close their phone.
-
-Do not end with a sign-off like "Have a blessed week!" or "In His grace." Just let the prayer or blessing be the ending.
-
----
-
-## Format Rules
-
-- **Total length:** 200-300 words. Not a word more. Count them if needed.
-- **Paragraphs:** 2-3 sentences max. No walls of text.
-- **Tone:** Warm, unhurried, personal. Like a pastor texting a friend, not writing for a publication.
-- **Point of view:** First person is fine. Encouraged, even. It makes the devotional feel like a real person wrote it.
-- **Translation note:** If a passage reads awkwardly in the translation given, note the translation used at the bottom of the devotional in italics.
-
----
-
-## Anti-Patterns
-
-Avoid these. They will kill the devotional.
-
-- Never exceed 300 words. Brevity is pastoral care. Long devotionals get skimmed or deleted.
-- Never turn this into a sermon. One insight. One takeaway. That is enough.
-- Never use the devotional to promote events, announcements, or campaigns.
-- Never open with "Dear church family" or any variation of a formal greeting.
-- Never close with "Have a blessed week!" It is a cliche that signals the pastor stopped thinking.
-- Never write a reflection that could apply to any week of any year. Be specific to this week.
-- Never quote more than 3 verses. Resist the urge to pile on more Scripture for credibility. One passage, held well, is better than five passages held loosely.
-
----
+When the church or town is grieving: lament with them and don't explain why it happened. Name someone who died only if the pastor confirms the family is fine with it. Include the practical help people need this week (a prayer gathering, counselors at the school, who to call), even though it's an event.
 
 ## Output
 
-Deliver the devotional as a formatted PDF using `generate-pdf.py`.
-
-No headers inside the devotional itself. No labels like "Opening:" or "Reflection:" in the final output. Those are structural guides for writing it, not formatting for the reader.
-
-The devotional should read as one continuous piece: a short note from a pastor who cares, arriving in someone's inbox on a Wednesday morning.
-
-If the input includes a current sermon series, weave in a single line of connection. Keep it light. Something like: "We've been talking on Sundays about..." is enough. Don't force a lecture. One thread is sufficient.
-
-If the input includes a community event or current moment on people's minds, let it inform the opening or reflection. Ground the text in the world the reader is actually living in.
-
-Word count check before finalizing: if it exceeds 300 words, cut from the reflection first, then the closing. The opening and takeaway are the last things to trim.
-
-### PDF Generation
-
-Write the devotional content to a JSON file, then run `generate-pdf.py` to produce the branded PDF.
-
-**JSON schema:**
-
-```json
-{
-  "church_name": "CHURCH_NAME from foundation",
-  "date": "April 16, 2026",
-  "pastor_name": "PASTOR_NAME from foundation",
-  "passage_reference": "Psalm 46:10",
-  "translation": "ESV",
-  "scripture_text": "Be still, and know that I am God.",
-  "opening": "Opening text (1-2 sentences).",
-  "reflection": "Reflection text. Separate paragraphs with double newlines.",
-  "takeaway": "One sentence the reader carries into the rest of the week.",
-  "closing": "Prayer or benediction text."
-}
-```
-
-**Field notes:**
-
-- `church_name` and `pastor_name` come from the pastor-foundation skill.
-- `reflection` uses `\n\n` to separate paragraphs.
-- No section headers appear in the PDF. The layout flows as one continuous piece.
-- The PDF is church-branded (no REACHRIGHT branding). Footer shows only a thin gray rule and page number.
-
-**Usage:**
-
-```bash
-python generate-pdf.py input.json                  # output auto-named from date
-python generate-pdf.py input.json devotional.pdf   # explicit output path
-```
+Give the devotional in chat, ready to paste. If the pastor asks for a PDF or printable copy, follow `references/pdf.md`.

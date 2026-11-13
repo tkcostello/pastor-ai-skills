@@ -1,129 +1,58 @@
 ---
 name: social-media-calendar
-description: Use when planning a week or month of church social media content, mapping posts to dates, platforms, sermon series, and upcoming events.
+description: Plans a week or month of church social media posts by date and platform, built around the sermon series and church calendar. Use when the pastor says "plan our social posts for next week", "build April's social media calendar", "what should we post this month", "map out posts around Easter and baptism Sunday", or "give our volunteer a posting schedule".
 argument-hint: "[week or month + what's coming up]"
 ---
 
 # Social Media Content Calendar
 
-**Plan a week (or month) of posts in five minutes.**
+A posting plan a small church team can actually keep, built around Sunday.
 
-> Before writing: follow the pastor-foundation skill and load the church profile from `~/.claude/pastor-profile.md`. If the profile file is missing, run the pastor-setup skill first.
+<!-- shared-context:start: edit skills/pastor-foundation/context.md, then run scripts/sync-context.py -->
+## Church context
 
----
+Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, polity, attendance, location, Bible translation, ministry names, voice preferences, service times, website and giving link. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
 
-## What You Need to Provide
+Write as the person in the profile. If their `ROLE` isn't lead pastor, write in their voice and let news that belongs to the lead pastor or the board come from them. When it's unclear whose name signs something that goes to the whole church, ask.
 
-Give me the following so I can build your calendar:
+Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets, including each tradition's church calendar.
 
-- **Time period:** This week, next week, this month, or a specific date range
-- **Upcoming sermon series or topics:** What are you preaching? Series title, week number, or key theme
-- **Events and key dates:** Anything on the church calendar: baptisms, volunteer appreciation, outreach events, guest speakers, special services
-- **Any special emphasis:** Missions month, giving campaign, prayer initiative, back-to-school, holiday season, launch Sunday
-- **Posting frequency (optional):** Default is 4-5 times per week. Tell me if you want more or less.
+- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Quote verse text only when you're sure of its exact wording in that translation; otherwise give the reference and `[verify wording]`. Don't stretch a verse to carry a point its passage doesn't make.
+- Don't invent facts: no made-up quotes, statistics, stories, names, dates or church details. Leave a clear `[placeholder]` instead.
+- Protect people. Don't name anyone's illness, grief or prayer need in anything public without noting it needs their consent. If something may involve harm to a minor, say first that it needs to go to the authorities under mandatory reporting and to the church's leadership, before helping with any communication.
+- Sermon tools help the pastor study and think. None of them writes a sermon to preach as-is.
+- Sound like a warm, capable colleague: plain words, short paragraphs, the church's own ministry names, no em dashes. Say it and stop.
+<!-- shared-context:end -->
 
-You do not need to have everything figured out. Give me what you have and I will fill in the gaps with content that fits your church's rhythm.
+## What to ask for
 
----
+The date range, the sermon series or topics, and anything on the church calendar (baptisms, outreach, guest speakers, a giving or missions emphasis, holidays). Default to four or five posts a week unless the pastor says otherwise. Work with whatever they give; a single sentence is enough to start.
 
-## Step 1: Map the Calendar
+## Building the plan
 
-Before writing any post ideas, I build the content foundation using this weekly framework. The goal is a balanced mix: reinforce the message, build community, drive engagement, and invite action.
+Place things in this order: major events first (Easter, launch Sunday, baptisms) since everything around them should build toward them; then the sermon, so Sunday gets a quote or recap and the week echoes its theme; then a steady thread of engagement posts; then testimonies, behind-the-scenes and practical posts as fill.
 
-| Day | Content Type | Purpose |
-|---|---|---|
-| Sunday | Sermon quote or recap | Reinforce the message people just heard |
-| Monday | Behind-the-scenes or team highlight | Build community, show the human side |
-| Tuesday | Engagement question or poll | Drive interaction and comments |
-| Wednesday | Midweek encouragement (scripture or devotional thought) | Pastoral care between Sundays |
-| Thursday | Event promo or practical tip | Drive action, fill seats, move people |
-| Friday | Fun, lighthearted content, or testimony | End the week on a positive note |
-| Saturday | Sunday preview or community invite | Build anticipation, drive attendance |
+A rhythm that works for most churches, to adapt freely:
 
-This framework adapts based on your actual events and calendar. If you have a baptism Sunday, that changes everything around it. If you have no events that week, I lean into message-driven and engagement content.
+- **Sunday:** sermon quote or recap
+- **Monday:** behind the scenes or a team or volunteer highlight
+- **Tuesday:** a question or poll
+- **Wednesday:** midweek encouragement from scripture
+- **Thursday:** event promo or a practical help
+- **Friday:** something light, or a testimony
+- **Saturday:** Sunday preview and invitation
 
-Not every day needs a post. Four to five quality posts per week outperforms seven mediocre ones every time.
+Not every day needs a post. Four or five a week that people stop for beats seven they scroll past, and a volunteer can sustain it. Keep to one feed post per platform per day; Stories don't count. Include one short vertical video a week (the sermon clip from `sermon-to-youtube`, or a 15-second phone video) as a Reel. Every idea should be doable with a phone photo or a simple text graphic; a plan that waits on a designer for every post doesn't get executed. If an idea is weak, leave the day empty.
 
----
+## Output
 
-## Step 2: Generate the Calendar
+In chat:
 
-I produce a complete calendar table with every post mapped out:
+1. A short overview of the period: the themes and the anchor moments you built around.
+2. A table with date, day, platform (Facebook, Instagram or both), post type, a specific content idea someone could write from or hand to a volunteer, the call to action, who supplies the photo, video or words, and the date it needs to be ready.
+3. A Sunday shot list: the four to six photos and short clips someone needs to capture on Sunday for the week's posts.
+4. Graphics needed: which posts need a designed asset, what it is, and when it needs to be ready.
+5. One or two evergreen posts that can be made ahead and held as backups for a week that falls apart.
+6. Platform notes: which posts can be shared to both with small changes and which need a different hook, format or caption length.
 
-| Date | Day | Platform | Post Type | Topic and Content Idea | CTA |
-|---|---|---|---|---|---|
-
-Each row includes:
-
-- **Date:** The specific date (e.g., April 13)
-- **Day:** Day of the week
-- **Platform:** Facebook, Instagram, or both (when cross-posting makes sense)
-- **Post Type:** Sermon quote, engagement question, event promo, testimony, behind-the-scenes, scripture, fun/lighthearted, Sunday invite
-- **Topic and Content Idea:** A clear, ready-to-use concept. Not a vague suggestion. A specific idea with enough detail to write the post or brief a team member.
-- **CTA:** The one action you want people to take. Comment below. Share this. Register here. See you Sunday.
-
----
-
-## Step 3: Notes and Flags
-
-After the calendar table, I add three categories of notes:
-
-**Graphics Needed**
-I flag every post that benefits from a custom graphic. I note whether it is a quote card, event promo image, or photo opportunity. If you have a graphic designer or volunteer on Canva, this list tells them exactly what to build and when it needs to be ready.
-
-**Evergreen Posts**
-I identify 1-2 posts in the calendar that are not date-sensitive. These can be scheduled in advance, batched when you have a creative burst, or held as backup content if a week falls apart. Knowing which posts are evergreen keeps your calendar flexible without going dark.
-
-**Platform Notes**
-I call out which posts are platform-specific versus which can be cross-posted with minor adjustments. Cross-posting is not always lazy. Sometimes the same message genuinely works on Facebook and Instagram. But I will tell you when a post needs a different hook, different image format, or different caption length for each platform.
-
----
-
-## How I Prioritize Content
-
-Not all weeks are equal. When you give me your inputs, I run them through this priority filter before building the calendar:
-
-1. **Major events first.** Easter, launch Sunday, baptism Sunday, a guest speaker. These anchor the calendar. Everything else builds around them.
-2. **Sermon series next.** Your preaching is the thread that holds the week together. At minimum, Sunday gets a sermon recap or quote and the rest of the week echoes the theme.
-3. **Engagement content throughout.** Comments and saves tell the algorithm your page is worth showing. I place engagement questions and interactive posts at consistent intervals to keep the week from going flat.
-4. **Evergreen and practical content as fill.** Tips, testimonies, and behind-the-scenes posts round out the calendar without requiring constant creativity.
-
----
-
-## Anti-Patterns I Avoid
-
-These are the habits that turn a social media calendar into noise. I will not build a calendar around them.
-
-- **Never schedule more than one post per day per platform.** Posting twice in a day trains the algorithm to split your reach and trains your audience to ignore you.
-- **Never require a graphic designer for every post.** A text-based post on a solid color background or a good phone photo is better than no post while you wait on a designer. I build calendars that are actually executable.
-- **Never fill with filler content.** Four posts your congregation will stop for beats seven posts they will scroll past. If the idea is weak, it does not make the calendar.
-- **Never ignore the sermon.** Sunday morning is the center of your church's week. Your social media should extend that message, not replace it with something unrelated.
-- **Never use em dashes.** Periods, commas, and colons handle transitions without signaling that a machine wrote it.
-
----
-
-## Output Format
-
-Here is what you get when this skill runs:
-
-1. **Calendar Overview:** One paragraph summarizing the week or month, the main themes, and any anchor moments I built around.
-2. **Content Calendar Table:** Every post mapped by date, platform, post type, idea, and CTA. Ready to hand to a team member or fill in directly.
-3. **Graphics Needed:** A short list of posts requiring a designed asset, what the asset should be, and a suggested deadline.
-4. **Evergreen Posts:** 1-2 posts flagged as schedule-in-advance opportunities.
-5. **Platform Notes:** Any posts that need platform-specific adjustments or are best kept to one platform only.
-
-Everything is ready to act on. No vague suggestions. No research required on your end. You get a calendar you can hand off or execute yourself.
-
----
-
-## Usage Examples
-
-**Input:** "This week only. Preaching on generosity, series called 'Open Hands.' We have a volunteer spotlight happening Sunday afternoon. Posting 4 times this week."
-
-**Input:** "Build me April's calendar. Series is 'Rooted' through the book of John. We have baptisms on April 27 and a community cleanup event on April 19. Missions emphasis all month."
-
-**Input:** "Next week. No series yet, in between series. Back Sunday with a standalone message on anxiety. Nothing special on the calendar."
-
-**Input:** "Two weeks. We just launched a new kids ministry called Basecamp. Big push to get families to check it out. Preaching through Ephesians."
-
-Give me what you have. The more context, the sharper the calendar. But even a single sentence gets us started.
+Offer to write the whole first week's captions in one pass, following the `church-social-post` skill.

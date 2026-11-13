@@ -1,210 +1,65 @@
 ---
 name: sermon-to-youtube
-description: Use when publishing a sermon video to YouTube: titles, description, timestamps, tags, thumbnail direction, and short-form clip selection.
+description: Builds a complete YouTube upload package for a sermon video: titles, description, chapters, tags, category, thumbnail concepts and the best short-form clip. Use when the pastor says "help me post this sermon on YouTube", "write a YouTube title and description for Sunday's message", "add timestamps to my sermon video", "what clip should we cut for a Short", or "nobody finds our sermons on YouTube".
 argument-hint: "[sermon title + transcript]"
 ---
 
 # Sermon to YouTube
 
-**Upload your sermon so people actually find it.**
+People search YouTube every day for the questions sermons answer. A sermon titled "Sunday Service 4/6" never meets them. The gap is rarely production value; it's packaging.
 
-> Before writing: follow the pastor-foundation skill and load the church profile from `~/.claude/pastor-profile.md`. If the profile file is missing, run the pastor-setup skill first.
+<!-- shared-context:start: edit skills/pastor-foundation/context.md, then run scripts/sync-context.py -->
+## Church context
 
----
+Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, polity, attendance, location, Bible translation, ministry names, voice preferences, service times, website and giving link. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
 
-## What This Skill Does
+Write as the person in the profile. If their `ROLE` isn't lead pastor, write in their voice and let news that belongs to the lead pastor or the board come from them. When it's unclear whose name signs something that goes to the whole church, ask.
 
-You uploaded your sermon to YouTube. Maybe you titled it "Sunday Service 4/6/26" and called it a day. Maybe it's been sitting at 14 views for six months, mostly from your mom and one guy from the prayer chain.
+Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets, including each tradition's church calendar.
 
-YouTube is the second-largest search engine in the world. People search it every day for answers to the exact questions your sermon addressed. The gap between "no one finds this" and "hundreds of people find this" is not production value. It is optimization.
+- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Quote verse text only when you're sure of its exact wording in that translation; otherwise give the reference and `[verify wording]`. Don't stretch a verse to carry a point its passage doesn't make.
+- Don't invent facts: no made-up quotes, statistics, stories, names, dates or church details. Leave a clear `[placeholder]` instead.
+- Protect people. Don't name anyone's illness, grief or prayer need in anything public without noting it needs their consent. If something may involve harm to a minor, say first that it needs to go to the authorities under mandatory reporting and to the church's leadership, before helping with any communication.
+- Sermon tools help the pastor study and think. None of them writes a sermon to preach as-is.
+- Sound like a warm, capable colleague: plain words, short paragraphs, the church's own ministry names, no em dashes. Say it and stop.
+<!-- shared-context:end -->
 
-This skill takes your sermon title and transcript and produces a complete, ready-to-upload YouTube package: titles that rank, a description that works, tags that matter, thumbnail concepts a designer can execute, and one short-form clip worth pulling immediately.
+## What to ask for
 
----
+The transcript (full is best; partial works if it covers the key moments) and the sermon or series title. Ask whether the upload is the sermon alone or the full service, and if timestamps matter, when the sermon starts in the video. Use the channel's standard "about" text if the pastor has one.
 
-## Input
+## Read the sermon first
 
-Provide the following:
+Before writing anything, work out:
 
-- **Sermon title** (working title or series title is fine, it will be improved)
-- **Sermon transcript** (full preferred; partial works if it covers the key moments)
-- **Optional:** Approximate sermon length in minutes (used to estimate timestamps)
+- **Core topic:** the question this sermon answers, in one sentence.
+- **Movements:** the four to eight distinct sections (the problem, the passage, the story, the turn, the application). These become chapters.
+- **Peaks:** where it hits hardest, the story that lands or the line people write down. These are clip candidates.
+- **Search angles:** what someone would actually type to find this ("how to forgive someone who hurt you," "Romans 8 explained"), never the series name.
 
-If you have a YouTube channel description or your church's standard "about" text, include it. It will be used in the description's about section.
+## The package
 
----
+**Titles (three).** One search-led ("What the Bible Actually Says About Worry"), one curiosity-led ("Why Jesus Told Worried People to Look at Birds"), one plain value statement for subscribers. Put the topic first and keep the meaning inside the first 60 or so characters, since search and mobile cut longer titles off. Series names and "Pastor [Name] Preaches on..." titles tell a searcher nothing; save the series name for the description. Recommend one and say why in a sentence. Every title has to be a promise the sermon keeps: sensational or misleading titles burn trust with exactly the audience most likely to watch.
 
-## Workflow
+**Description (about 200 to 400 words).**
+- The first two lines are all that shows before "more." Spend them on what the viewer gets, with the main search phrase in them. Don't open with the church name, the pastor's name or "Watch this sermon about."
+- Chapters as `00:00 Chapter Title`, starting at 00:00, at least three of them, at least ten seconds apart (YouTube ignores chapters that break these rules). Name them by content ("Why Worry Feels Like Control"), not structure ("Point 2"). Use only times that appear in the transcript or that the pastor gave you. Otherwise write each chapter as `[mm:ss] Chapter Title (starts: "first few spoken words")` so someone can scrub to it and fill in the time. Never turn an estimate into a time.
+- Two or three warm, third-person sentences about the pastor and church, with an invitation to visit or subscribe.
+- Real lines for the website, social accounts and giving page, using the profile's details and a clear placeholder for anything missing.
+- Write for a person. Related terms should show up naturally; no keyword list at the bottom, and never a pasted transcript.
 
-### Step 1: Analyze the Sermon
+**Tags (about 15).** A few broad ones (sermon, Bible teaching), the specific topic and passage ("Romans 8 sermon," "anxiety Bible"), and identity tags (pastor, church, city, denomination). Tags carry little weight on YouTube now, so keep them specific and skip near-duplicates.
 
-Before generating anything, read the transcript and identify:
+**Category.** Usually Education for teaching and exposition, or Nonprofits & Activism for announcement and generosity videos. Pick one and give the reason.
 
-- **Core topic.** One sentence. What question does this sermon answer, or what truth does it establish?
-- **Key moments.** The 4-8 most distinct movements: opening, first major point, story/illustration, scripture exposition, application, call to action, close. These become timestamps.
-- **Emotional peaks.** Where does the content hit hardest? The story that lands. The turn. The line people write down. These are short-form candidates.
-- **Searchable angles.** What would someone type into YouTube to find this sermon? Think: "how to trust God when life falls apart," "what does the Bible say about anxiety," "Romans 8 explained." Not "Week 4: Anchor Series."
+**Thumbnail concepts (two or three).** For each: background, the actual overlay text (five words or fewer, large and high-contrast so it reads at phone size), whether the pastor's face appears and with what expression, and the feeling it gives before anyone reads it. Text and image should work together to promise the same thing as the title. Avoid the polished stock-photo look; viewers scroll past it.
 
-Write out your analysis before proceeding. This shapes everything else.
+**Playlist.** Name the playlist this belongs in (the series, titled by topic so a searcher understands it).
 
----
+**Music.** If the upload includes worship, warn that cover songs can draw Content ID claims or get muted unless the church holds a streaming license (such as CCLI Streaming), and suggest uploading the sermon on its own.
 
-### Step 2: Generate the YouTube Package
+**Short-form clip.** The single best 30 to 90 second segment for a Short, Reel or TikTok. Give the exact first and last lines verbatim so an editor can find them, its word count (about 150 spoken words is 60 seconds), a hook line for on-screen text in the first two seconds, a Shorts title under about 50 characters with a one-line description, a reminder to burn in captions (most people watch muted), and two or three sentences on why it works alone. A good clip starts inside the tension rather than at an introduction, makes one complete point or tells one complete micro-story, needs nothing else from the sermon to make sense, and has a moment worth rewatching. If a second segment is nearly as strong, name it in a line.
 
-Produce all five components below. No placeholders. Complete, polished output ready to copy and paste.
+## Output
 
----
-
-#### Title Options (3)
-
-Each title must be:
-
-- Under 60 characters (YouTube truncates at 60 in search results)
-- Built around what the sermon answers, not what it was called internally
-- Free of series names as the primary identifier
-- Written for the person searching, not the person who was already in the room
-
-Generate three options, one of each type:
-
-1. **Search-optimized.** Keyword-forward. Starts with the topic people search. Speaks directly to the question.
-   - Example: "What the Bible Actually Says About Worry"
-   - Example: "How to Forgive Someone Who Hurt You Deeply"
-
-2. **Curiosity-driven.** Hooks a browser. Creates a gap. Makes someone need to know.
-   - Example: "The Verse About Fear No One Talks About"
-   - Example: "Why Most Christians Get Patience Wrong"
-
-3. **Direct and clear.** Straightforward value statement. Works well for returning subscribers who trust the channel.
-   - Example: "Trusting God in Uncertain Times: A Biblical Framework"
-   - Example: "Finding Peace When Life Doesn't Make Sense"
-
-After all three, recommend one and explain why in one sentence.
-
-**What to avoid:**
-- "Romans Part 3, Sunday Sermon" -- series names with no topic signal
-- "Pastor [Name] Preaches on..." -- name-first titles lose to topic-first titles in search
-- Titles over 60 characters
-- Titles that only make sense if you already know the series
-
----
-
-#### Description (200-400 words)
-
-Structure the description in this order:
-
-**First 2 lines (above "Show More"):**
-These are the only lines visible before someone clicks. They must earn the click. Write a compelling 1-2 sentence summary of what the viewer will get. Include the primary keyword naturally. Write for the person who found this in search, not someone who already attends.
-
-Do not open with the pastor's name, the church name, or "Watch this sermon about..." These waste the most valuable real estate in the description.
-
-**Timestamps (4-8 chapters):**
-Format: `00:00 Chapter Title`
-
-Use approximate timestamps based on the sermon's structure and length. Chapters improve watch time, show up in search, and help viewers navigate. Label them for content, not structure ("The Problem With Worry" beats "Introduction").
-
-If exact timestamps are not available, estimate based on total length and transcript pacing. Note that timestamps are approximate if needed.
-
-**About section (2-3 sentences):**
-Brief, warm, third-person. Who is this pastor. What church. Where. One sentence invitation to subscribe or explore more.
-
-**Links:**
-Include placeholder lines for:
-- Church website
-- Social media (Facebook, Instagram)
-- Giving link
-- Subscribe prompt
-
-Write these as real lines, not labels. Example: "Visit us online at [church website]" not "[INSERT WEBSITE HERE]."
-
-**Keywords woven in:**
-The description body should naturally include the primary keyword and 2-3 related terms. Do not add a keyword dump at the bottom. YouTube reads the whole description. Write for a human, not a crawler.
-
----
-
-#### Tags (15-20)
-
-Mix three types:
-
-1. **Broad and high-volume:** "sermon," "church," "Bible study," "Christian message," "Sunday sermon," "church online"
-2. **Topic-specific:** Use the actual topic, scripture passage, book of the Bible, and related search terms. Examples: "Romans 8 sermon," "suffering and faith," "trusting God," "anxiety Bible"
-3. **Identity tags:** Pastor name, church name, city and state, denomination if applicable
-
-Keep total tags between 15 and 20. YouTube's tag limit matters less than it used to, but specificity still helps in related video placement.
-
----
-
-#### YouTube Category
-
-Name the recommended category and why. Most sermons fit one of two:
-
-- **Education:** Best for exposition-heavy sermons, Bible teaching, topical messages with practical application
-- **Nonprofits and Activism:** Best for church announcement videos, generosity campaigns, community-facing content
-
-Pick one and state the reason in one sentence.
-
----
-
-#### Thumbnail Concepts (2-3 ideas)
-
-For each concept, specify:
-
-- **Background:** Solid color, gradient, or image (if image, describe what kind: close-up face, environmental shot, texture)
-- **Text overlay:** 3-5 words. Large. High contrast. Readable on a phone screen at thumbnail size. Write the actual text, not a description of it.
-- **Pastor photo:** Yes or no. If yes, placement: left side, right side, centered. Expression direction: confident, concerned, hopeful, surprised.
-- **Emotional tone:** What does this thumbnail communicate before anyone reads it?
-
-**Hard rules:**
-- Maximum 5 words of text on the thumbnail. Fewer is better.
-- Text must contrast with the background. Dark text on dark background is invisible at small size.
-- No stock photo vibe. Thumbnails that look polished but generic get ignored.
-- The text and image should work together to create curiosity or confirm relevance.
-
----
-
-#### Short-Form Clip Recommendation
-
-Identify the single best 30-60 second segment from the transcript to pull as a YouTube Short, Instagram Reel, or TikTok.
-
-Provide:
-
-- **Start and end timestamps** (approximate, based on transcript position)
-- **Transcript excerpt:** Paste the actual words from that segment
-- **Why this segment works:** 2-3 sentences. What makes it land as a standalone clip? Does it have a hook in the first 3 seconds? Does it resolve tension? Does it leave someone wanting more?
-- **Suggested short-form title:** Under 50 characters. Written for short-form discovery, not the full sermon title.
-
-A good short-form clip:
-- Starts in the middle of tension, not at an introduction
-- Makes a complete point or tells a complete micro-story
-- Does not require the rest of the sermon to make sense
-- Has a moment worth pausing on or rewatching
-
----
-
-## Anti-Patterns
-
-These are hard stops. None of these belong in the output:
-
-- **Clickbait that misrepresents the content.** If the sermon does not answer the promise in the title, change the title.
-- **"YOU WON'T BELIEVE" energy.** This is a sermon. Sensationalism kills trust with the exact audience most likely to watch.
-- **More than 20 tags.** Tag bloat signals spam. Quality over quantity.
-- **Transcript-dump descriptions.** The description is not the transcript. It is a sales page for the video. Write it like one.
-- **Thumbnails with more than 5 words.** If you need 8 words to explain the thumbnail, the concept is not strong enough.
-- **Series-name-only titles.** "Anchored: Part 5" tells a search engine nothing and convinces no one to click.
-- **Em dashes.** Do not use them. Use a period, comma, or colon instead.
-
----
-
-## Quality Check
-
-Before presenting the output, verify:
-
-- [ ] All three title options are under 60 characters
-- [ ] The first 2 lines of the description stand alone without "Show More"
-- [ ] Timestamps are present and labeled by content, not structure
-- [ ] Tags total between 15 and 20
-- [ ] No tag appears twice in different forms
-- [ ] Each thumbnail concept includes background, text, photo placement, and tone
-- [ ] Thumbnail text is 5 words or fewer
-- [ ] Short-form clip is 30-60 seconds, has a transcript excerpt, and has a suggested title
-- [ ] No em dashes used anywhere in the output
-- [ ] No placeholders. All content is complete and ready to use.
+In chat, ready to copy: the three titles with your pick, the full description with chapters and links, the tags as one comma-separated line, the category, the playlist, the thumbnail concepts, the clip recommendation, and the music warning if it applies. List every `[mm:ss]` and other placeholder the pastor needs to fill.

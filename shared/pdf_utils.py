@@ -107,16 +107,6 @@ def build_styles():
         leading=12, textColor=NAVY,
     )
 
-    # --- REACHRIGHT banner styles (white on navy) ---
-    s["brand_body"] = ParagraphStyle(
-        "BrandBody", fontName="Helvetica", fontSize=9, leading=13,
-        textColor=HexColor("#C8D6E5"),
-    )
-    s["brand_url"] = ParagraphStyle(
-        "BrandURL", fontName="Helvetica-Bold", fontSize=10, leading=14,
-        textColor=GOLD_LIGHT, spaceBefore=4,
-    )
-
     return s
 
 
@@ -284,83 +274,25 @@ def add_title_banner(story, title_text, subtitle_text, meta_parts, styles):
     ))
 
 
-# --- REACHRIGHT Branding Banner ---
-
-def add_reachright_footer(story, styles):
-    """Add REACHRIGHT branding as a navy banner at the end."""
-    story.append(Spacer(1, 30))
-
-    brand_content = []
-    brand_content.append(Paragraph(
-        "Built by REACHRIGHT. We help churches get found online: custom websites, "
-        "Google Ad Grants, local SEO, and social media done for you. "
-        "If this tool saved you time this week, we can save you a lot more.",
-        styles["brand_body"]
-    ))
-    brand_content.append(Paragraph("reachrightstudios.com", styles["brand_url"]))
-
-    banner = Table(
-        [[brand_content]],
-        colWidths=[CONTENT_WIDTH],
-    )
-    banner.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), NAVY),
-        ("LEFTPADDING", (0, 0), (-1, -1), 20),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 20),
-        ("TOPPADDING", (0, 0), (-1, -1), 16),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 16),
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        # Gold top accent
-        ("LINEABOVE", (0, 0), (-1, 0), 3, GOLD),
-    ]))
-    story.append(banner)
-
-
 # --- Page Footer (canvas callback factory) ---
 
-def make_page_footer(brand="reachright"):
-    """Return a canvas callback for page footers.
-
-    Args:
-        brand: "reachright" for gold rule + "Powered by REACHRIGHT" + page number.
-               "church" for thin gray rule + page number only.
-    """
+def make_page_footer(label=""):
+    """Return a canvas callback that draws a thin rule, an optional label
+    (usually the church name) on the left, and the page number on the right."""
     def _footer(canvas_obj, doc):
         canvas_obj.saveState()
         page_width = letter[0]
         margin = 1.0 * inch
-
-        if brand == "reachright":
-            # Thin gold rule
-            canvas_obj.setStrokeColor(GOLD)
-            canvas_obj.setLineWidth(0.5)
-            canvas_obj.line(margin, 0.6 * inch, page_width - margin, 0.6 * inch)
-
-            # "Powered by REACHRIGHT" left
-            canvas_obj.setFont("Helvetica", 7)
-            canvas_obj.setFillColor(MED_GRAY)
-            canvas_obj.drawString(margin, 0.42 * inch, "Powered by REACHRIGHT")
-
-            # Page number right
-            page_num = canvas_obj.getPageNumber()
-            canvas_obj.drawRightString(
-                page_width - margin, 0.42 * inch, f"Page {page_num}"
-            )
-
-        elif brand == "church":
-            # Thin gray rule
-            canvas_obj.setStrokeColor(RULE_GRAY)
-            canvas_obj.setLineWidth(0.5)
-            canvas_obj.line(margin, 0.6 * inch, page_width - margin, 0.6 * inch)
-
-            # Page number right only
-            canvas_obj.setFont("Helvetica", 7)
-            canvas_obj.setFillColor(MED_GRAY)
-            page_num = canvas_obj.getPageNumber()
-            canvas_obj.drawRightString(
-                page_width - margin, 0.42 * inch, f"Page {page_num}"
-            )
-
+        canvas_obj.setStrokeColor(RULE_GRAY)
+        canvas_obj.setLineWidth(0.5)
+        canvas_obj.line(margin, 0.6 * inch, page_width - margin, 0.6 * inch)
+        canvas_obj.setFont("Helvetica", 7)
+        canvas_obj.setFillColor(MED_GRAY)
+        if label:
+            canvas_obj.drawString(margin, 0.42 * inch, label)
+        canvas_obj.drawRightString(
+            page_width - margin, 0.42 * inch, f"Page {canvas_obj.getPageNumber()}"
+        )
         canvas_obj.restoreState()
 
     return _footer
