@@ -43,7 +43,7 @@ _load_pdf_utils()
 
 from pdf_utils import (
     build_styles, section_header, add_section, add_title_banner,
-    add_reachright_footer, make_page_footer, create_doc, add_table,
+    make_page_footer, create_doc, add_table,
 )
 from reportlab.platypus import Paragraph
 
@@ -113,8 +113,7 @@ def generate_pdf(json_path, output_path=None):
     if data.get("practical_notes"):
         add_practical_notes(story, data["practical_notes"], styles)
 
-    add_reachright_footer(story, styles)
-    page_footer = make_page_footer("reachright")
+    page_footer = make_page_footer(data.get("church_name", ""))
     doc.build(story, onFirstPage=page_footer, onLaterPages=page_footer)
     return os.path.abspath(output_path)
 

@@ -146,7 +146,7 @@ def generate_pdf(json_path, output_path=None):
             items.append(f"<b>{item_name}:</b> {summary}")
         add_bullet_list(story, items, styles)
 
-    page_footer = make_page_footer("church")
+    page_footer = make_page_footer(data.get("church_name", ""))
     doc.build(story, onFirstPage=page_footer, onLaterPages=page_footer)
     return os.path.abspath(output_path)
 

@@ -145,7 +145,7 @@ def generate_pdf(json_path, output_path=None):
     if data.get("pastor_name"):
         story.append(Paragraph(data["pastor_name"], styles["devo_signoff"]))
 
-    page_footer = make_page_footer("church")
+    page_footer = make_page_footer(data.get("church_name", ""))
     doc.build(story, onFirstPage=page_footer, onLaterPages=page_footer)
     return os.path.abspath(output_path)
 

@@ -43,7 +43,7 @@ _load_pdf_utils()
 
 from pdf_utils import (
     build_styles, section_header, add_title_banner,
-    add_reachright_footer, make_page_footer, create_doc,
+    make_page_footer, create_doc,
     add_shaded_box, add_bullet_list,
 )
 from reportlab.platypus import Paragraph, Spacer
@@ -117,8 +117,7 @@ def generate_pdf(json_path, output_path=None):
         story.append(Paragraph("OPTIONAL CHALLENGE", styles["body_label"]))
         story.append(Paragraph(data["optional_challenge"], styles["body_content"]))
 
-    add_reachright_footer(story, styles)
-    page_footer = make_page_footer("reachright")
+    page_footer = make_page_footer(data.get("church_name", ""))
     doc.build(story, onFirstPage=page_footer, onLaterPages=page_footer)
     return os.path.abspath(output_path)
 
