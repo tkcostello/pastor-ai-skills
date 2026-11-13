@@ -15,6 +15,9 @@ These series are written primarily for scholars, seminary students, and pastors 
 | New International Commentary on the Old Testament (NICOT) | Eerdmans | Same series as NICNT, covering the Old Testament. Reliable scholarship with pastoral awareness. Strong on historical context. | Paid. Print and Logos. |
 | Baker Exegetical Commentary on the New Testament (BECNT) | Baker Academic | Technical commentary series with detailed grammatical analysis. Uses transliterated Greek throughout, making it accessible to pastors with limited Greek training. | Paid. Print and Logos. |
 | Pillar New Testament Commentary | Eerdmans | Aimed at ministers and serious students. Academically rigorous but written with preaching in mind. Contributors include D.A. Carson and Andreas Kostenberger. | Paid. Print and Logos. |
+| New American Commentary (NAC) | B&H | Evangelical series covering both Testaments, written for pastors as well as scholars. Published by the Southern Baptist publishing house and widely used in Baptist churches. Daniel Block's Judges, Ruth volume is a standout. | Paid. Print and Logos. |
+| Apollos Old Testament Commentary | IVP / Apollos | Newer evangelical Old Testament series with careful attention to the Hebrew text and to how each passage is used in the rest of Scripture. | Paid. Print and Logos. |
+| Kregel Exegetical Library | Kregel | Detailed evangelical commentaries, strong on the Old Testament (Allen Ross on Psalms, for example). Technical but readable. | Paid. Print and Logos. |
 
 ---
 
@@ -25,6 +28,8 @@ These series are written primarily for preachers. They engage the text seriously
 | Name | Publisher | Description | Access |
 |---|---|---|---|
 | NIV Application Commentary (NIVAC) | Zondervan | Structured in three sections per passage: original meaning, bridging contexts, and contemporary significance. Built for preaching application. Wide coverage of both Testaments. | Paid. Print and Logos. |
+| Tyndale Commentaries (TOTC and TNTC) | IVP | Compact single-volume commentaries on every book of both Testaments. The quickest reliable read on what a passage means and where the debates are. | Paid. Print and Logos. |
+| Focus on the Bible | Christian Focus | Expository commentaries for preachers, including Dale Ralph Davis's Old Testament narrative volumes (Joshua, Judges, Samuel, Kings), which are among the most useful for preaching hard narrative. | Paid. Print. |
 | BE Series (Wiersbe) | David C. Cook | Warren Wiersbe's accessible, illustration-rich commentary series. Written in plain English. Better for devotional context and illustration ideas than for technical exegesis. Strong for lay-level explanation. | Paid. Print. Some titles in digital platforms. |
 | Preaching the Word (Crossway) | Crossway | Edited by R. Kent Hughes. Expository sermon commentaries. Excellent for seeing how a skilled preacher has worked through a text. Not verse-by-verse analysis but full sermon-level treatment. | Paid. Print and Crossway website. |
 | Christ-Centered Exposition (CCE) | B&H Academic | Series designed to help preachers see the gospel thread through every passage. Contributors include David Platt and Tony Merida. Useful for connecting any text back to Christ. | Paid. Print and Logos. |
@@ -51,13 +56,13 @@ These are platforms and tools that aggregate multiple commentaries or provide or
 |---|---|---|---|
 | Blue Letter Bible | blueletterbible.org | Free web tool for word studies, interlinear text, lexicons (Strong's, Thayer's, BDB), and commentary excerpts from Matthew Henry, Jamieson-Fausset-Brown, and others. The fastest free option for original language lookups. | Free |
 | Bible Hub | biblehub.com | Free interlinear Bible, original language concordances, parallel translations, and brief commentary excerpts. Strong for comparing translations side-by-side quickly. | Free |
-| Logos Bible Software | logos.com | The most comprehensive digital Bible study platform. Aggregates hundreds of commentaries, lexicons, and reference works with cross-linking. Significant investment but the standard tool for serious study. | Paid. Starter packages begin around $200. |
+| Logos Bible Software | logos.com | The most comprehensive digital Bible study platform. Aggregates hundreds of commentaries, lexicons, and reference works with cross-linking. Significant investment but the standard tool for serious study. | Paid. |
 | Accordance Bible Software | accordancebible.com | Strong alternative to Logos. Better performance on Mac. Deep original language tools and a large library. Common in academic and seminary settings. | Paid. |
 
 ---
 
 ## How This Skill Uses These Sources
 
-The sermon-research skill draws on the positions and insights of commentators from these series when summarizing commentary insights for a passage. It does not fabricate direct quotes. When a commentator's position is cited by name, it reflects that scholar's documented interpretive stance.
+The sermon-research skill draws on the positions and insights of commentators from these series when summarizing commentary insights for a passage. It does not quote them directly. A position cited by name is a summary from memory of that scholar's overall reading, so treat it as a starting point and check it against the book before you quote or rely on it.
 
 If you have access to specific commentaries through Logos, Blue Letter Bible, or print, reading the original source after reviewing the research summary is always worth the time. The goal of this reference document is to give you a map so you know what is out there and where to go deeper.

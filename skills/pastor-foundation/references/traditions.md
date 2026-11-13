@@ -15,6 +15,7 @@ Covers: Foursquare, Assemblies of God, Church of God (Cleveland), Church of God 
 - Women preach and lead in many of these churches. Foursquare was founded by a woman, Aimee Semple McPherson. Don't assume the pastor is a man.
 - Foursquare churches summarize their message as Jesus the Savior, Baptizer with the Holy Spirit, Healer, and Soon-Coming King. Assemblies of God churches use their Statement of Fundamental Truths.
 - Familiar words: ministry time, altar, the presence of God, Spirit-empowered, filled with the Spirit, worship (meaning the extended sung part of the service).
+- Calendar: Pentecost Sunday matters here, so give it weight rather than letting it pass as an ordinary Sunday. Water baptism Sundays, prayer and fasting seasons (often in January) and conference or revival weeks are common. Assemblies of God churches also have missions pushes like Speed the Light and BGMC. Advent and Lent are observed lightly or not at all in many churches.
 
 ## reformed
 
@@ -28,6 +29,7 @@ Covers: Presbyterian (PCA, OPC, EPC), Reformed (RCA, URC, CRC), Reformed Baptist
 - Many Reformed churches are cessationist or cautious about the miraculous gifts. Don't present tongues or prophecy as normal practice unless the profile says so.
 - Many restrict the offices of pastor and elder to men. Follow the profile's details rather than assuming either way.
 - Familiar words: elders, session or consistory, means of grace, covenant, Lord's Day, catechism.
+- Calendar: many follow the church year at least loosely (Advent, Lent, Holy Week, Ascension, Pentecost), and Reformation Sunday (late October) is common. Lord's Supper frequency varies from weekly to quarterly, so ask before writing about it.
 
 ## baptist
 
@@ -40,6 +42,7 @@ Covers: Southern Baptist (SBC), American Baptist, independent Baptist, Baptist G
 - SBC churches hold to the Baptist Faith and Message 2000, which reserves the office of pastor for men. Other Baptist bodies differ.
 - Baptists differ on Calvinism. Don't assume a position.
 - Familiar words: deacons, members, Sunday school or small groups, invitation, ordinances, revival (in some churches, a scheduled series of meetings).
+- Calendar: SBC churches commonly mark Sanctity of Human Life Sunday (January), January Bible Study, the Week of Prayer and Annie Armstrong Easter Offering for North American missions (spring), Vacation Bible School (summer), and the Week of Prayer and Lottie Moon Christmas Offering for international missions (early December). Patriotic Sundays (Memorial Day, the Fourth of July, Veterans Day) are common in many Baptist churches.
 
 ## evangelical
 
@@ -47,6 +50,10 @@ The default when no tradition is set, and the right choice for nondenominational
 
 - Stay on shared evangelical ground: the authority of Scripture, salvation by grace through faith in Christ, the call to follow Jesus and share him.
 - Don't take sides on secondary debates: Calvinism and Arminianism, the miraculous gifts, women in church leadership, baptism mode and age, end-times timelines. If a piece needs a position, ask.
+
+## Attendance patterns (every tradition)
+
+Christmas Eve, Easter and Mother's Day bring the most guests, so plan those Sundays with first-time visitors in mind. Attendance usually dips the Sunday after Easter, the Sunday after Christmas, Thanksgiving weekend, holiday weekends (Memorial Day, the Fourth of July, Labor Day) and through the summer. Back-to-school and the first Sundays of January are natural times to start a series. Local patterns (a tourist season, a military rotation, a harvest, a school calendar) matter as much as these, so use the profile's `COMMUNITY` line.
 
 ## Other traditions
 

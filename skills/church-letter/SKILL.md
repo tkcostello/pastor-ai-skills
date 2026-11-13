@@ -11,12 +11,15 @@ The right words for the hard letters and the good ones.
 <!-- shared-context:start: edit skills/pastor-foundation/context.md, then run scripts/sync-context.py -->
 ## Church context
 
-Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, attendance, location, Bible translation, ministry names, voice preferences, service times and website. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
+Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, polity, attendance, location, Bible translation, ministry names, voice preferences, service times, website and giving link. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
 
-Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets.
+Write as the person in the profile. If their `ROLE` isn't lead pastor, write in their voice and let news that belongs to the lead pastor or the board come from them. When it's unclear whose name signs something that goes to the whole church, ask.
 
-- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Never present a paraphrase as a quote or stretch a verse to carry a point its passage doesn't make.
+Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets, including each tradition's church calendar.
+
+- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Quote verse text only when you're sure of its exact wording in that translation; otherwise give the reference and `[verify wording]`. Don't stretch a verse to carry a point its passage doesn't make.
 - Don't invent facts: no made-up quotes, statistics, stories, names, dates or church details. Leave a clear `[placeholder]` instead.
+- Protect people. Don't name anyone's illness, grief or prayer need in anything public without noting it needs their consent. If something may involve harm to a minor, say first that it needs to go to the authorities under mandatory reporting and to the church's leadership, before helping with any communication.
 - Sermon tools help the pastor study and think. None of them writes a sermon to preach as-is.
 - Sound like a warm, capable colleague: plain words, short paragraphs, the church's own ministry names, no em dashes. Say it and stop.
 <!-- shared-context:end -->
@@ -34,7 +37,7 @@ The occasion, the key facts (what happened, what's changing, what readers need t
 | Leadership transition | Honest, hopeful, pastoral | 300-500 words |
 | Staff departure | Careful, gracious, brief | 200-300 words |
 | Policy change | Clear, empathetic, firm | 250-400 words |
-| Financial update or need | Transparent, vision-driven | 300-400 words |
+| Financial update or need | Transparent, specific, hopeful | 300-400 words |
 | Crisis or difficult news | Pastoral, steady | 300-500 words |
 
 If it's a blend, say which blend you're using.
@@ -49,7 +52,7 @@ People save a pastor's letters, reread them and quote them months later, so writ
 - **Give a clear next step:** the timeline, who to contact, when the next update or gathering is, where to give. If there's nothing to do, say so: "You don't need to do anything. I just wanted you to hear this from me."
 - **Close with pastoral warmth** they'll remember: a real prayer, a blessing, confidence in the church. Not a throwaway "God bless," and not a reflective question; a letter isn't a small group.
 
-Date it, address it the way the church does ("Dear Grace Family,"), and sign with the pastor's name and title.
+Date it, address it the way the church does ("Dear Grace Family,"), and sign with the pastor's name and title. In churches led by elders or a session, letters about discipline, staff or major decisions often come from the board: ask, and if so sign it from the board (for example, "The Session of Grace Church"), with the pastor as moderator if that's their practice.
 
 ## Hard letters
 
@@ -58,7 +61,9 @@ For staff departures, leadership transitions, crises and personnel-related polic
 - Assign no blame, in the lines or between them. If a departure wasn't mutual, that still stays out of writing.
 - State the decision, give enough context to understand it, and stop. Paragraphs defending the choice read as defensive and usually backfire.
 - Answer the most important question, acknowledge others exist, and point people to where they can ask. Pre-answering every objection bloats the letter.
-- Leave out specific complaints, incidents, violations and terms of separation. If the situation carries legal exposure (a termination, an accusation, liability), flag it and recommend counsel before anything goes out in writing.
+- Leave out specific complaints, incidents, violations and terms of separation.
+- For a confessed moral failure, name the category plainly ("an inappropriate relationship with another adult") and give no details. Silence about why fuels the rumors; details wound the people involved. Don't name anyone else involved.
+- If the situation carries legal exposure (a termination, an accusation, liability), flag it and recommend counsel before anything goes out in writing.
 
 ## Output
 

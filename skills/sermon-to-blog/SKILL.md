@@ -11,12 +11,15 @@ Rebuild the sermon as an article for someone who never heard it, reading on a ph
 <!-- shared-context:start: edit skills/pastor-foundation/context.md, then run scripts/sync-context.py -->
 ## Church context
 
-Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, attendance, location, Bible translation, ministry names, voice preferences, service times and website. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
+Read the church profile at `~/.claude/pastor-profile.md` (in a claude.ai Project it sits in the project instructions). Use what it holds: church and pastor names, role, tradition, polity, attendance, location, Bible translation, ministry names, voice preferences, service times, website and giving link. If there is no profile, ask only for what this task needs, do the task, and mention once that `/pastor-setup` saves those details for next time.
 
-Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets.
+Write as the person in the profile. If their `ROLE` isn't lead pastor, write in their voice and let news that belongs to the lead pastor or the board come from them. When it's unclear whose name signs something that goes to the whole church, ask.
 
-- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Never present a paraphrase as a quote or stretch a verse to carry a point its passage doesn't make.
+Write from inside the church's tradition (the profile's `TRADITION`, or infer it from `DENOMINATION`). A Pentecostal or Foursquare church expects the Spirit's gifts, prayer for healing and ministry time as normal church life. A Reformed church has its confessions and the doctrines of grace. A Baptist church has believer's baptism and congregational life. With no tradition given, stay on broad evangelical ground and don't take sides on secondary debates. The `pastor-foundation` skill's `references/traditions.md` has the full presets, including each tradition's church calendar.
+
+- Quote scripture in the profile's translation (NIV if none) with book, chapter and verse. Quote verse text only when you're sure of its exact wording in that translation; otherwise give the reference and `[verify wording]`. Don't stretch a verse to carry a point its passage doesn't make.
 - Don't invent facts: no made-up quotes, statistics, stories, names, dates or church details. Leave a clear `[placeholder]` instead.
+- Protect people. Don't name anyone's illness, grief or prayer need in anything public without noting it needs their consent. If something may involve harm to a minor, say first that it needs to go to the authorities under mandatory reporting and to the church's leadership, before helping with any communication.
 - Sermon tools help the pastor study and think. None of them writes a sermon to preach as-is.
 - Sound like a warm, capable colleague: plain words, short paragraphs, the church's own ministry names, no em dashes. Say it and stop.
 <!-- shared-context:end -->
@@ -31,6 +34,8 @@ Before drafting, pull out the big idea in one sentence (the transferable truth, 
 
 ## Writing it for readers
 
+Write in the pastor's own first person ("I"), as a post under their name, unless they ask for something else. Never narrate the pastor in the third person ("Pastor Mike tells a story...").
+
 - **Title.** Name the question or truth, not the series ("The Anchor Holds, Week 3" means nothing to a searcher). Keep it around 60 characters so it isn't cut off in search results, with the keyword in it naturally. Offer three and recommend one.
 - **Meta description.** About 150 to 160 characters saying what the reader gets, in a human sentence.
 - **Opening.** Two or three sentences that start where the reader is: a tension, a question, a moment they'll recognize. Don't open with "Last Sunday I preached," the sermon title, a block of scripture or "In this post we'll explore." Someone arriving from search doesn't know or care that it was a sermon yet.
@@ -38,8 +43,8 @@ Before drafting, pull out the big idea in one sentence (the transferable truth, 
 - **Close.** One clear takeaway and one specific thing to do today (not "spend time in prayer this week"). End on a line that lands. Skip "In conclusion."
 - **Length.** About 800 to 1,200 words. If it runs long, cut; a reader who finishes is worth more than one who quits halfway.
 
-Adapt altar-call language ("if you're ready to give your life to Jesus tonight") into an invitation that fits a reader, such as visiting the church or talking with a pastor. Use the keyword a few times where it reads naturally and nowhere it doesn't.
+Adapt altar-call language ("if you're ready to give your life to Jesus tonight") into an invitation that fits a reader: talking with a pastor, or visiting, using the profile's service times and website. Leave out response steps that only worked in the room or on the livestream ("come to the front," "text HOME to..."). Use the keyword a few times where it reads naturally and nowhere it doesn't.
 
 ## Output
 
-In chat: the recommended title with two alternatives, the meta description, the full article with H2 subheadings ready to paste into WordPress or any CMS, and a one-line SEO note naming the primary keyword and any secondary terms that came up naturally.
+In chat: the recommended title with two alternatives, a short URL slug (`older-brother-prodigal-son`), the meta description, the full article with H2 subheadings ready to paste into WordPress or any CMS, ending with a line pointing to the full message at `[sermon video link]`, a featured-image idea (a real church photo beats stock) with one sentence of alt text, and a one-line SEO note naming the primary keyword and any secondary terms that came up naturally. List any stories you flagged for the pastor's OK.

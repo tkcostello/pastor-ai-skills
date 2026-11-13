@@ -1,6 +1,6 @@
 # Pastor AI Skills
 
-14 AI-powered workflow tools built for pastors. Not prompts. Real multi-step skills that handle the weekly grind so you can focus on ministry.
+18 AI-powered workflow tools built for pastors. Not prompts. Real multi-step skills that handle the weekly grind so you can focus on ministry.
 
 Built for [Claude Code](https://claude.ai/code). Also works in Claude.ai Projects.
 
@@ -28,7 +28,7 @@ Then:
 /plugin install pastor-skills@pastor-ai-skills
 ```
 
-That's it. All 14 skills, the shared foundation, and the optional PDF templates install together, and you get updates whenever this repo improves.
+That's it. All 18 skills, the shared foundation, and the optional PDF templates install together, and you get updates whenever this repo improves.
 
 Then run your first skill:
 
@@ -51,21 +51,26 @@ Your denomination also sets your tradition. Pentecostal and charismatic churches
 | **Sermon Prep** | | |
 | `/sermon-research` | Deep research on a passage: commentaries, historical context, word studies, thinking prompts | Weekly |
 | `/sermon-brainstorm` | Interactive brainstorm session that produces a clear sermon brief | Weekly |
-| `/sermon-series` | Plan a multi-week series with titles, passages, and big ideas | Monthly |
+| `/sermon-series` | Plan a multi-week series with titles, passages, big ideas, and real dates | Monthly |
+| `/sermon-feedback` | Honest, ranked feedback on your own manuscript or transcript. Coaches, never rewrites | Weekly |
 | **Written Communication** | | |
 | `/church-email` | Write the weekly church email: subject line, preview text, body | Weekly |
 | `/announcement-script` | 60-90 second spoken announcement script for Sunday morning | Weekly |
 | `/church-letter` | Letters for any occasion: transitions, updates, celebrations, hard news | As needed |
 | **Sermon Repurposing** | | |
+| `/sunday-to-week` | One sermon transcript in, the whole week out: group guide, devotional, email recap, social posts, YouTube, blog | Weekly |
 | `/small-group-questions` | Discussion questions from Sunday's sermon: observation, interpretation, application | Weekly |
 | `/sermon-to-blog` | Turn a sermon into an 800-1200 word blog post (not a transcript) | Weekly |
 | `/sermon-to-youtube` | YouTube title, description, tags, thumbnail concept, short-form clip recommendation | Weekly |
 | **Social Media** | | |
-| `/church-social-post` | Platform-specific posts for Facebook, Instagram, and Twitter | 3-5x/week |
+| `/church-social-post` | Platform-specific posts for Facebook and Instagram (plus X or Threads if you use them) | 3-5x/week |
 | `/social-media-calendar` | A week or month of content mapped to dates and platforms | Weekly |
 | **Pastoral Rhythm** | | |
 | `/midweek-devotional` | 200-300 word devotional for email or app: pastoral, personal, brief | Weekly |
 | `/meeting-agenda` | Structured agenda with time blocks and discussion questions | Weekly |
+| **Funerals and Weddings** | | |
+| `/funeral-prep` | Family meeting questions, order of service, readings, life sketch, message brief, logistics, follow-up care | As needed |
+| `/wedding-prep` | Questions for the couple, ceremony order, vows, readings, message brief, rehearsal run sheet | As needed |
 
 You don't have to remember the slash commands. Once installed, just ask in plain English ("help me research Philippians 2 for Sunday") and Claude picks the right skill.
 
